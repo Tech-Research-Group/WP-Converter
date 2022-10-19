@@ -1,0 +1,67 @@
+!Drain, Shower (Replace)
+
+Thursday, September 1, 2022
+8:05 AM
+
+Initial Setup:
+Standard setup/ ESS full set up and equipped
+
+Test Equipment:
+
+Tools:
+Knife
+Wrench (GMTK)
+Screwdriver (GMTK)
+Putty (GMTK?)
+
+Materials:
+Drain, Shower
+Rap, Wiping
+
+Mandatory Replacement Parts:
+
+Personnel:
+MOS: 91J
+
+References:
+TM 10-8340-244-13&P (Placeholder)
+WP 0037 (placeholder)
+
+Equipment Condition:
+Operating under usual conditions (TM___ )
+
+Maintenance Task Here:
+.Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable.
+.Remove shower drain cap;
+.figure
+.figure
+.Install turning tool to drain lock. 
+.Unscrew drain lock using turning tool, 
+.figure
+.Remove gasket and discard.
+.figure
+.Remove anti-slip mat nearest to showers
+.Note:It my be beneficial to run the shaving mirror sinks in order to find holes in flexible coupling.Remove wooden space-filler[Placeholder]
+.figure
+.Remove five screws securing cover and remove Shower Base Cover Plate. Retain cover and screws.
+.figure
+.Unscrew and remove locking ring, rubber sealing washer and friction washer.
+.figure
+.Remove shower drain frame.
+.Remove putty
+.Place putty around the lip of the new shower drain frame
+.Insert shower drain frame into hole located in the center of the shower pan.
+.Remove excess putty
+.Place rubber sealing washer and friction washer.[Placeholder]
+.Screw on locking ring.
+.Place new rubber gasket, bevel up, in shower drain frame 
+.Insert flexible coupling into the rubber gasket, ensuring the rubber gasket stays parallel with the drain .hole.
+.Using the turning tool, attach the drain lock
+.Caution: Do not use a power drill to remove the shower head. The shower head may break. [Placeholder]
+.Ensure the drain pipe complete seal with drain
+.Attach Shower Base Cover Plate using retained screws
+.Place wooden space-filler as to appear flat
+.Place anti-slip mat.
+
+Follow on Maintenance:
+Replace shower head IAW TM 10-8340-244-13&P[Placeholder]
