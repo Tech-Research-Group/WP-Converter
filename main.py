@@ -1,7 +1,13 @@
 """WORK PACKAGE CONVERTER"""
 import tkinter as tk
 import tkinter.font as tkfont
+from tkinter.constants import END
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
+
+TOOLS = ["scewdriver", "drill", "riveter", "tape", "wrench", "ladder"]
+
+def get_tools():
+    """Get tools from the list of tools."""
 
 def get_title() -> str:
     """Gets the title of the work package."""
@@ -19,7 +25,7 @@ def get_task() -> str:
 
 def get_task_title() -> str:
     """Gets the maintenance task title."""
-    onenote = txt_input.get("1.0",'end-1c')
+    onenote = txt_input.get("1.0", END)
     lines = onenote.splitlines()
 
     for line in lines:
@@ -27,6 +33,13 @@ def get_task_title() -> str:
             index = lines.index(line)
             task_title = lines[index+1]
             return task_title
+
+def add_period(step1) -> str:
+    """Adds a period to step1's with incorrect closing punctuation."""
+    new_step = ''
+    if not str(step1).endswith("."):
+        new_step = str(step1) + "."
+    return new_step
 
 def remove_comments(row) -> str:
     """Removes comments from the output."""
@@ -36,7 +49,7 @@ def remove_comments(row) -> str:
 
 def split_input() -> list:
     """Splits the input into a list."""
-    onenote = txt_input.get("1.0",'end-1c')
+    onenote = txt_input.get("1.0", END)
     lines = onenote.splitlines()
     return lines
 
@@ -52,7 +65,7 @@ def create_wpidinfo() -> str:
 
 def create_initial_setup() -> str:
     """Creates the initial_setup section into XML."""
-    onenote = txt_input.get("1.0",'end-1c')
+    onenote = txt_input.get("1.0", END)
     lines = onenote.split("\n")
     initial_setup = '\t<initial_setup>\n'
 
@@ -199,11 +212,11 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Note: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][7:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][7:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][6:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][6:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</note>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -218,11 +231,11 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Caution: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</caution>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -237,11 +250,11 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Warning: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</warning>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -255,7 +268,7 @@ def create_maintsk() -> str:
 
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
-                        maintsk += '\t\t\t\t\t<para>' + remove_comments(lines[index][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t<para>' + add_period(remove_comments(lines[index][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t</step1>\n'
 
             maintsk += '\t\t\t</proc>\n'
@@ -275,7 +288,7 @@ def create_maintsk() -> str:
                     maintsk += '\t<followon.maintsk>\n'
                     maintsk += '\t\t<proc>\n'
                     # Remove comments from the follow-on maintenance task
-                    followon_maintsk = remove_comments(followon_maintsk)
+                    followon_maintsk = add_period(remove_comments(followon_maintsk))
                     # Display the follow-on maintenance task w/o comments
                     maintsk += '\t\t\t<para>' + followon_maintsk + '</para>\n'
                     maintsk += '\t\t</proc>\n'
@@ -294,7 +307,7 @@ def create_maintsk() -> str:
 
 def convert() -> None:
     """Converts the input from OneNote to XML."""
-    txt_output.delete("1.0",'end-1c')
+    txt_output.delete("1.0", END)
     try:
         # Call functions that convert input into XML
         xml = create_wpidinfo()
@@ -314,7 +327,7 @@ def convert() -> None:
 
 def save() -> None:
     """Saves the output as an XML file."""
-    xml = txt_output.get("1.0",'end-1c')
+    xml = txt_output.get("1.0", END)
     filename = filedialog.asksaveasfilename(initialdir = "/",
         title="Select file",filetypes = (("xml files","*.xml"), ("txt files", "*.txt"),
         ("all files","*.*")))

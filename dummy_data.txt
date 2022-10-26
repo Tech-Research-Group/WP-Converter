@@ -34,11 +34,10 @@ Maintenance Task Here:
 .Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable.
 .Remove shower drain cap;
 .figure
-.figure
 .Install turning tool to drain lock. 
-.Unscrew drain lock using turning tool, 
+.Unscrew drain lock using turning tool,
 .figure
-.Remove gasket and discard.
+.Remove gasket and discard;
 .figure
 .Remove anti-slip mat nearest to showers
 .Note:It my be beneficial to run the shaving mirror sinks in order to find holes in flexible coupling.Remove wooden space-filler[Placeholder]
