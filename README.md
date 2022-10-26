@@ -7,4 +7,4 @@ copy the newly generated XML into an existing txt file or choose to save it as a
 any bugs or have some ideas to improve the program please reach out to Nick Ricci so he can address them
 properly. Thanks!
 
-![WP Converter]()
+![WP Converter](https://github.com/Tech-Research-Group/WP-Converter/blob/main/screenshot.png)
