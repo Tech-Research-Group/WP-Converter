@@ -1,13 +1,33 @@
 """WORK PACKAGE CONVERTER"""
 import tkinter as tk
 import tkinter.font as tkfont
-from tkinter.constants import END
+from tkinter.constants import END, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
 
-TOOLS = ["scewdriver", "drill", "riveter", "tape", "wrench", "ladder"]
+TOOLS = ["screwdriver", "drill", "riveter", "tape", "wrench", "ladder"]
+tools = []
 
-def get_tools():
+def get_tools() -> list:
     """Get tools from the list of tools."""
+    onenote = txt_input.get("1.0", END)
+    lines = onenote.splitlines()
+
+    for line in lines:
+        if line.startswith("."):
+            if TOOLS[0] in line.lower():
+                tools.append("Screwdriver")
+            elif TOOLS[1] in line.lower():
+                tools.append("Drill")
+            elif TOOLS[2] in line.lower():
+                tools.append("Riveter")
+            elif TOOLS[3] in line.lower():
+                tools.append("Tape")
+            elif TOOLS[4] in line.lower():
+                tools.append("Wrench")
+            elif TOOLS[5] in line.lower():
+                tools.append("Step Ladder")
+    print(tools)
+    return tools
 
 def get_title() -> str:
     """Gets the title of the work package."""
@@ -315,13 +335,16 @@ def convert() -> None:
         xml += create_maintsk()
 
         # Insert XML into the output box
-        txt_output.insert(tk.END, xml)
+        txt_output.insert(END, xml)
 
         # Show the Save button once conversion is complete
         btn_save = Button(root, text ="Save", font=("Arial",14), fg = "white",bg="#F05454",
                              activebackground="#007ACC", relief="flat", borderwidth="0", command=lambda:[save(),
                              btn_save.place_forget()])
         btn_save.place(relx = 0.5, rely = 0.9, relwidth="0.5", height=100, anchor='nw')
+        # btn_save = Button(root, text ="Get Tools", font=("Arial",14), fg = "white",bg="#F05454",
+        #                      activebackground="#007ACC", relief="flat", borderwidth="0", command=get_tools)
+        # btn_save.place(relx = 0.5, rely = 0.9, relwidth="0.5", height=100, anchor='nw')
     except IndexError:
         messagebox.showerror("Error!", "No input found. Paste your OneNote input into the input box on the left before converting. Please try again.")
 
@@ -355,7 +378,7 @@ text_scroll1.pack(side="left",fill="y")
 #input text
 txt_input = Text(frame1,font =("Arial",13), insertbackground="black", bg = "#c6cbcf",
                     fg ="black", selectbackground="#30475E", selectforeground="white", undo=True,
-                    yscrollcommand=text_scroll1.set, wrap=tk.WORD)
+                    yscrollcommand=text_scroll1.set, wrap=WORD)
 txt_input.pack(side = "left",fill="y")
 
 text_scroll1.config(command=txt_input.yview)
@@ -378,7 +401,7 @@ text_scroll2.pack(side="left", fill="y")
 #output text
 txt_output = Text(frame2,font =("Menlo",13),insertbackground="black", bg = "#c6cbcf",
                      fg ="black", selectbackground="#30475E", selectforeground="white",
-                     undo=True, yscrollcommand=text_scroll2.set, wrap=tk.WORD)
+                     undo=True, yscrollcommand=text_scroll2.set, wrap=WORD)
 txt_output.pack(side="left",fill="y")
 
 font = tkfont.Font(font=txt_output['font'])
