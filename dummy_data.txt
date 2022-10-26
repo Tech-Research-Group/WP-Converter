@@ -32,12 +32,12 @@ Operating under usual conditions (TM___ )
 
 Maintenance Task Here:
 .Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable.
-.Remove shower drain cap;
+.Remove shower drain cap
 .figure
-.Install turning tool to drain lock. 
-.Unscrew drain lock using turning tool,
+.Install turning tool to drain lock.
+.Unscrew drain lock using turning tool
 .figure
-.Remove gasket and discard;
+.Remove gasket and discard
 .figure
 .Remove anti-slip mat nearest to showers
 .Note:It my be beneficial to run the shaving mirror sinks in order to find holes in flexible coupling.Remove wooden space-filler[Placeholder]
@@ -54,7 +54,7 @@ Maintenance Task Here:
 .Place rubber sealing washer and friction washer.[Placeholder]
 .Screw on locking ring.
 .Place new rubber gasket, bevel up, in shower drain frame 
-.Insert flexible coupling into the rubber gasket, ensuring the rubber gasket stays parallel with the drain .hole.
+.Insert flexible coupling into the rubber gasket, ensuring the rubber gasket stays parallel with the drain hole.
 .Using the turning tool, attach the drain lock
 .Caution: Do not use a power drill to remove the shower head. The shower head may break. [Placeholder]
 .Ensure the drain pipe complete seal with drain

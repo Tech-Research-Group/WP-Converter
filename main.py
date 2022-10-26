@@ -232,11 +232,11 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Note: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][7:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][7:]) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][6:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][6:]) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</note>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -251,11 +251,11 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Caution: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</caution>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -270,11 +270,11 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Warning: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</warning>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -288,7 +288,10 @@ def create_maintsk() -> str:
 
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
-                        maintsk += '\t\t\t\t\t<para>' + add_period(remove_comments(lines[index][1:])) + '</para>\n'
+                        if lines[index][1:].endswith("."):
+                            maintsk += '\t\t\t\t\t<para>' + remove_comments(lines[index][1:]) + '</para>\n'
+                        else:
+                            maintsk += '\t\t\t\t\t<para>' + remove_comments(lines[index][1:]) + '.</para>\n'
                         maintsk += '\t\t\t\t</step1>\n'
 
             maintsk += '\t\t\t</proc>\n'
@@ -316,11 +319,11 @@ def create_maintsk() -> str:
 
             except IndexError:
                 # Display empty follow-on maintenance task tags
-                # maintsk += '\t<followon.maintsk>\n'
-                # maintsk += '\t\t<proc>\n'
-                # maintsk += '\t\t\t<para></para>\n'
-                # maintsk += '\t\t</proc>\n'
-                # maintsk += '\t</followon.maintsk>\n'
+                maintsk += '\t<followon.maintsk>\n'
+                maintsk += '\t\t<proc>\n'
+                maintsk += '\t\t\t<para></para>\n'
+                maintsk += '\t\t</proc>\n'
+                maintsk += '\t</followon.maintsk>\n'
                 print("No follow-on maintenance task found")
     maintsk += '</maintwp>\n'
     return maintsk
@@ -359,7 +362,7 @@ def save() -> None:
 
 root = tk.Tk()
 
-#root.resizable(False, False)
+root.resizable(False, False)
 root.title("Maintenance Work Package Converter")
 root.configure(background='#222831')
 
