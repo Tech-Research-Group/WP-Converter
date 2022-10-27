@@ -10,9 +10,8 @@ Test Equipment:
 
 Tools:
 Knife
-Wrench (GMTK)
-Screwdriver (GMTK)
-Putty (GMTK?)
+Wrench
+Screwdriver
 
 Materials:
 Drain, Shower
@@ -47,7 +46,7 @@ Maintenance Task Here:
 .Unscrew and remove locking ring, rubber sealing washer and friction washer.
 .figure
 .Remove shower drain frame.
-.Remove putty
+.Remove tape from shower drain frame.
 .Place putty around the lip of the new shower drain frame
 .Insert shower drain frame into hole located in the center of the shower pan.
 .Remove excess putty

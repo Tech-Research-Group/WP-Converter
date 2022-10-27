@@ -4,36 +4,62 @@ import tkinter.font as tkfont
 from tkinter.constants import END, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
 
-TOOLS = ["screwdriver", "drill", "riveter", "tape", "wrench", "ladder"]
-tools = []
+TOOLS = ["screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty",
+         "loctite", "multimeter", "gloves", "goggles", "wire stripper"]
 
-def get_tools() -> list:
+def get_tools() -> None:
     """Get tools from the list of tools."""
     onenote = txt_input.get("1.0", END)
     lines = onenote.splitlines()
-
+    tools_list = []
+    # Loop through to find the tools line by line
     for line in lines:
         if line.startswith("."):
             if TOOLS[0] in line.lower():
-                tools.append("Screwdriver")
+                if TOOLS[0].lower() not in tools_list:
+                    tools_list.append("screwdriver")
             elif TOOLS[1] in line.lower():
-                tools.append("Drill")
+                if TOOLS[1].lower() not in tools_list:
+                    tools_list.append("drill")
             elif TOOLS[2] in line.lower():
-                tools.append("Riveter")
+                if TOOLS[2].lower() not in tools_list:
+                    tools_list.append("riveter")
             elif TOOLS[3] in line.lower():
-                tools.append("Tape")
+                if TOOLS[3].lower() not in tools_list:
+                    tools_list.append("tape")
             elif TOOLS[4] in line.lower():
-                tools.append("Wrench")
+                if TOOLS[4].lower() not in tools_list:
+                    tools_list.append("wrench")
             elif TOOLS[5] in line.lower():
-                tools.append("Step Ladder")
-    print(tools)
-    return tools
+                if TOOLS[5].lower() not in tools_list:
+                    tools_list.append("step ladder")
+            elif TOOLS[6] in line.lower():
+                if TOOLS[6].lower() not in tools_list:
+                    tools_list.append("putty")
+            elif TOOLS[7] in line.lower():
+                if TOOLS[7].lower() not in tools_list:
+                    tools_list.append("loctite")
+            elif TOOLS[8] in line.lower():
+                if TOOLS[8].lower() not in tools_list:
+                    tools_list.append("multimeter")
+            elif TOOLS[9] in line.lower():
+                if TOOLS[9].lower() not in tools_list:
+                    tools_list.append("gloves")
+            elif TOOLS[10] in line.lower():
+                if TOOLS[10].lower() not in tools_list:
+                    tools_list.append("goggles")
+            elif TOOLS[11] in line.lower():
+                if TOOLS[11].lower() not in tools_list:
+                    tools_list.append("wire stripper")
+    print(tools_list)
+    return tools_list
 
 def get_title() -> str:
     """Gets the title of the work package."""
     title = split_input()[0]
     title = title.split(" (")
-    title = title[0][1:].upper() + '<?Pub _newline?>' + title[1][:-1].upper()
+    # title = title[0][1:].upper() + '<?Pub _newline?>' + title[1][:-1].upper()
+    title = title[0].upper() + '<?Pub _newline?>' + title[1].upper()
     return title
 
 def get_task() -> str:
@@ -52,7 +78,7 @@ def get_task_title() -> str:
         if line.startswith("Maintenance Task Title:"):
             index = lines.index(line)
             task_title = lines[index+1]
-            return task_title
+    return task_title
 
 def add_period(step1) -> str:
     """Adds a period to step1's with incorrect closing punctuation."""
@@ -109,10 +135,12 @@ def create_initial_setup() -> str:
 
         if line.startswith("Tools:"):
             index = lines.index(line)
+            current_tools = []
             if lines[index + 1] != '':
                 initial_setup += '\t\t<tools>\n'
                 index += 1
                 while lines[index] != '':
+                    current_tools.append(remove_comments(lines[index]))
                     initial_setup += '\t\t\t<tools-setup-item>\n'
                     initial_setup += '\t\t\t\t<name>' + remove_comments(lines[index]) + '</name>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
@@ -120,6 +148,15 @@ def create_initial_setup() -> str:
                     initial_setup += '\t\t\t\t</itemref>\n'
                     initial_setup += '\t\t\t</tools-setup-item>\n'
                     index += 1
+
+                for tool in get_tools():
+                    if tool not in current_tools:
+                        initial_setup += '\t\t\t<tools-setup-item>\n'
+                        initial_setup += '\t\t\t\t<name>' + tool.capitalize() + '</name>\n'
+                        initial_setup += '\t\t\t\t<itemref>\n'
+                        initial_setup += '\t\t\t\t\t<xref itemid="" wpid=""/>\n'
+                        initial_setup += '\t\t\t\t</itemref>\n'
+                        initial_setup += '\t\t\t</tools-setup-item>\n'
                 initial_setup += '\t\t</tools>\n'
 
         if line.startswith("Materials:"):
@@ -225,7 +262,6 @@ def create_maintsk() -> str:
                     index = lines.index(line)
 
                     if line.startswith(".Note:"):
-                        # print("Line: " + str(index) + " " + lines[index][1:])
                         maintsk += '\t\t\t\t<step1>\n'
                         maintsk += '\t\t\t\t\t<specpara>\n'
                         maintsk += '\t\t\t\t\t\t<note>\n'
@@ -243,7 +279,6 @@ def create_maintsk() -> str:
                         lines[index + 1] = ''
 
                     elif line.startswith(".Caution:"):
-                        # print("Line: " + str(index) + " " + lines[index][1:])
                         maintsk += '\t\t\t\t<step1>\n'
                         maintsk += '\t\t\t\t\t<specpara>\n'
                         maintsk += '\t\t\t\t\t\t<caution>\n'
@@ -262,7 +297,6 @@ def create_maintsk() -> str:
                         lines[index + 1] = ''
 
                     elif line.startswith(".Warning:"):
-                        # print("Line: " + str(index) + " " + lines[index][1:])
                         maintsk += '\t\t\t\t<step1>\n'
                         maintsk += '\t\t\t\t\t<specpara>\n'
                         maintsk += '\t\t\t\t\t\t<warning>\n'
@@ -330,6 +364,7 @@ def create_maintsk() -> str:
 
 def convert() -> None:
     """Converts the input from OneNote to XML."""
+    global xml
     txt_output.delete("1.0", END)
     try:
         # Call functions that convert input into XML
@@ -345,9 +380,6 @@ def convert() -> None:
                              activebackground="#007ACC", relief="flat", borderwidth="0", command=lambda:[save(),
                              btn_save.place_forget()])
         btn_save.place(relx = 0.5, rely = 0.9, relwidth="0.5", height=100, anchor='nw')
-        # btn_save = Button(root, text ="Get Tools", font=("Arial",14), fg = "white",bg="#F05454",
-        #                      activebackground="#007ACC", relief="flat", borderwidth="0", command=get_tools)
-        # btn_save.place(relx = 0.5, rely = 0.9, relwidth="0.5", height=100, anchor='nw')
     except IndexError:
         messagebox.showerror("Error!", "No input found. Paste your OneNote input into the input box on the left before converting. Please try again.")
 
@@ -376,7 +408,7 @@ frame1 = Frame(root, bg='#c6cbcf', bd=10)
 frame1.place(relx = 0, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
 
 text_scroll1 = Scrollbar(frame1)
-text_scroll1.pack(side="left",fill="y")
+text_scroll1.pack(side="right",fill="y")
 
 #input text
 txt_input = Text(frame1,font =("Arial",13), insertbackground="black", bg = "#c6cbcf",
@@ -399,7 +431,7 @@ frame2 = Frame(root, bg='#c6cbcf', bd=10)
 frame2.place(relx = 0.5, rely=0.05,relwidth=0.5, relheight=0.85, anchor='nw')
 
 text_scroll2 = Scrollbar(frame2)
-text_scroll2.pack(side="left", fill="y")
+text_scroll2.pack(side="right", fill="y")
 
 #output text
 txt_output = Text(frame2,font =("Menlo",13),insertbackground="black", bg = "#c6cbcf",
