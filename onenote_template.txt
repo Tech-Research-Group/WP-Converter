@@ -1,4 +1,4 @@
-!Drain, Shower (Replace)
+Drain, Shower (Replace)
 
 Thursday, September 1, 2022
 8:05 AM
@@ -10,7 +10,7 @@ Test Equipment:
 
 Tools:
 Knife
-Wrench
+wrench
 Screwdriver
 
 Materials:
@@ -21,6 +21,7 @@ Mandatory Replacement Parts:
 
 Personnel:
 MOS: 91J
+1 Person
 
 References:
 TM 10-8340-244-13&P (Placeholder)
