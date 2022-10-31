@@ -5,22 +5,20 @@ from tkinter.constants import END, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
 import mos_codes
 
-MOS_NAME = ''
 TOOLS = [ "screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty",
          "loctite", "multimeter", "gloves", "goggles", "wire stripper" ]
-tools_list = []
+TOOLS_LIST = []
 
 def get_tools() -> None:
     """Get tools from the list of tools."""
     lines = txt_input.get("1.0", END).splitlines()
-    _x = 1
     # Loop through to find the tools line by line
     for line in lines:
-        if line.startswith(".") and TOOLS[_x] in line.lower() and TOOLS[_x].lower() not in tools_list:
-            tools_list.append(TOOLS[_x].lower())
-            _x+=1
-    print(tools_list)
-    return tools_list
+        if line.startswith("."):
+            for tool in TOOLS:
+                if tool in line.lower() and tool.lower() not in TOOLS_LIST:
+                    TOOLS_LIST.append(tool.lower())
+    return TOOLS_LIST
 
 def get_title() -> str:
     """Gets the title of the work package."""
@@ -56,36 +54,31 @@ def split_input() -> list:
 
 def create_wpidinfo() -> str:
     """Creates the wpidinfo section into XML."""
-    wp_title = get_title()
     wpidinfo = '<maintwp chngno="0" wpno="">\n' + '\t<wpidinfo>\n'
     wpidinfo += '\t\t<maintlvl level="operator"/>\n'
-    wpidinfo += '\t\t<title>' + str(wp_title) + '</title>\n'
+    wpidinfo += '\t\t<title>' + get_title() + '</title>\n'
     wpidinfo += '\t</wpidinfo>\n'
     return wpidinfo
 
 def get_mos() -> str:
     """Gets the name of the MOS based on code."""
     lines = txt_input.get("1.0", END).splitlines()
-    global MOS_NAME
-    MOS_NAME = ""
     for line in lines:
         if line.startswith("MOS: "):
             mos_code = line[5:8]
 
             for key in mos_codes.CODES:
                 if mos_code == key:
-                    print(key)
                     MOS_NAME = mos_codes.CODES.get(key)
-                    print(MOS_NAME)
+                    print(f'{key} - {MOS_NAME}')
                     break
         if line.startswith("MOS:"):
             mos_code = line[4:7]
 
             for key in mos_codes.CODES:
                 if mos_code == key:
-                    print(key)
                     MOS_NAME = mos_codes.CODES.get(key)
-                    print(MOS_NAME)
+                    print(f'{key} - {MOS_NAME}')
                     break
     return MOS_NAME
 
@@ -104,7 +97,7 @@ def create_initial_setup() -> str:
 
                 while lines[index] != '':
                     initial_setup += '\t\t\t<testeqp-setup-item>\n'
-                    initial_setup += '\t\t\t\t<name>' + remove_comments(lines[index]) + '</name>\n'
+                    initial_setup += '\t\t\t\t<name>' + line + '</name>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
                     initial_setup += '\t\t\t\t\t<xref itemid="" wpid="XXXXXX-XX-XXXX-XXX"/>\n'
                     initial_setup += '\t\t\t\t</itemref>\n'
@@ -114,13 +107,13 @@ def create_initial_setup() -> str:
 
         if line.startswith("Tools:"):
             index = lines.index(line)
-            global tools_list
-            tools_list = []
+            # global TOOLS_LIST
+            # TOOLS_LIST = []
             if lines[index + 1] != '':
                 initial_setup += '\t\t<tools>\n'
                 index += 1
                 while lines[index] != '':
-                    tools_list.append(remove_comments(lines[index]).lower())
+                    TOOLS_LIST.append(remove_comments(lines[index]).lower())
                     index += 1
 
             for tool in get_tools():
@@ -234,7 +227,8 @@ def create_initial_setup() -> str:
                 while lines[index] != '':
                     initial_setup += '\t\t\t<ref-setup-item>\n'
                     if lines[index].startswith("TM"):
-                        initial_setup += '\t\t\t\t<extref docno="' + remove_comments(lines[index]) + '"/>\n'
+                        initial_setup += '\t\t\t\t<extref docno="' + \
+                            remove_comments(lines[index]) + '"/>\n'
                     else:
                         initial_setup += '\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
                     initial_setup += '\t\t\t</ref-setup-item>\n'
@@ -252,10 +246,10 @@ def create_initial_setup() -> str:
                     if lines[index].startswith("TM"):
                         initial_setup += '\t\t\t\t<condition>PLACEHOLDER</condition>\n'
                         initial_setup += '\t\t\t\t<itemref>\n'
-                        initial_setup += '\t\t\t\t<extref docno="' + remove_comments(lines[index]) + '"/>\n'
+                        initial_setup += '\t\t\t\t<extref docno="' + lines[index] + '"/>\n'
                         initial_setup += '\t\t\t\t</itemref>\n'
                     else:
-                        initial_setup += '\t\t\t\t<condition>' + remove_comments(lines[index]) + '</condition>\n'
+                        initial_setup += '\t\t\t\t<condition>' + lines[index] + '</condition>\n'
                         initial_setup += '\t\t\t\t<itemref>\n'
                         initial_setup += '\t\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
                         initial_setup += '\t\t\t\t</itemref>\n'
@@ -290,11 +284,14 @@ def create_maintsk() -> str:
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Note: ") or lines[index].startswith(".NOTE: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][7:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
+                                add_period(remove_comments(lines[index][7:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][6:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
+                                add_period(remove_comments(lines[index][6:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + \
+                            add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</note>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -307,12 +304,16 @@ def create_maintsk() -> str:
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Caution: ") or lines[index].startswith(".CAUTION: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
+                        if lines[index].startswith(".Caution: ") or \
+                            lines[index].startswith(".CAUTION: "):
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
+                                add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
+                                add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + \
+                            add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</caution>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -325,18 +326,23 @@ def create_maintsk() -> str:
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Warning: ") or lines[index].startswith(".WARNING: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
+                        if lines[index].startswith(".Warning: ") or \
+                            lines[index].startswith(".WARNING: "):
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
+                                add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
+                                add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + \
+                            add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</warning>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".figure") or line.startswith(".Figure") or line.startswith(".FIGURE"):
+                    elif line.startswith(".figure") or line.startswith(".Figure") \
+                        or line.startswith(".FIGURE"):
                         maintsk += '\t\t\t\t<figure assocfig="">\n'
                         maintsk += '\t\t\t\t\t<title></title>\n'
                         maintsk += '\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
@@ -345,9 +351,11 @@ def create_maintsk() -> str:
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
                         if lines[index][1:].endswith("."):
-                            maintsk += '\t\t\t\t\t<para>' + remove_comments(lines[index][1:]) + '</para>\n'
+                            maintsk += '\t\t\t\t\t<para>' + \
+                                remove_comments(lines[index][1:]) + '</para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t<para>' + remove_comments(lines[index][1:]) + '.</para>\n'
+                            maintsk += '\t\t\t\t\t<para>' + \
+                                remove_comments(lines[index][1:]) + '.</para>\n'
                         maintsk += '\t\t\t\t</step1>\n'
 
             maintsk += '\t\t\t</proc>\n'
@@ -402,8 +410,8 @@ def convert() -> None:
                              command=lambda:[save(), btn_save.place_forget()])
         btn_save.place(relx=0.5, rely=0.9, relwidth="0.5", height=100, anchor='nw')
     except IndexError:
-        messagebox.showerror("Error!", "No input found. Paste your OneNote input into the input box on \
-            the left before converting. Please try again.")
+        messagebox.showerror("Error!", "No input found. Paste your OneNote input into \
+            the input box on the left before converting. Please try again.")
 
 def save() -> None:
     """Saves the output as an XML file."""
@@ -433,7 +441,7 @@ text_scroll1 = Scrollbar(frame1)
 text_scroll1.pack(side="right", fill="y")
 
 #input text
-txt_input = Text(frame1,font =("Arial",13), insertbackground="black", bg="#ffffff",
+txt_input = Text(frame1,font =("Arial", 13), insertbackground="black", bg="#ffffff",
                     fg ="black", selectbackground="#30475E", selectforeground="white", undo=True,
                     yscrollcommand=text_scroll1.set, wrap=WORD)
 txt_input.pack(side = "left", fill="y")
@@ -441,7 +449,7 @@ txt_input.pack(side = "left", fill="y")
 text_scroll1.config(command=txt_input.yview)
 
 #Convert Button
-button1 = Button(root, text ="Convert", font=("Arial",14), fg = "white", bg="#F05454",
+button1 = Button(root, text ="Convert", font=("Arial",14), fg="white", bg="#F05454",
                     activebackground="#007ACC", relief="flat", borderwidth="0", command=convert)
 button1.place(relx = 0, rely = .9, relwidth="0.5", height=100, anchor='nw')
 
@@ -456,10 +464,10 @@ text_scroll2 = Scrollbar(frame2)
 text_scroll2.pack(side="right", fill="y")
 
 #output text
-txt_output = Text(frame2,font =("Menlo", 11),insertbackground="black", bg="#ffffff",
+txt_output = Text(frame2,font =("Menlo", 13),insertbackground="black", bg="#ffffff",
                      fg ="black", selectbackground="#30475E", selectforeground="white",
                      undo=True, yscrollcommand=text_scroll2.set, wrap=WORD)
-txt_output.pack(side="left",fill="y")
+txt_output.pack(side="left", fill="y")
 
 font = tkfont.Font(font=txt_output['font'])
 tab=font.measure("    ")
@@ -467,7 +475,7 @@ txt_output.configure(tabs=tab)
 
 text_scroll2.config(command=txt_output.yview)
 
-label2 = Label(root, text="Results:", font=("Arial",12), bg='#DDDDDD')
+label2 = Label(root, text="Results:", font=("Arial", 12), bg='#DDDDDD')
 label2.place(relx=0.5, rely=0, relwidth=0.5, relheight=0.05)
 
 root.mainloop()

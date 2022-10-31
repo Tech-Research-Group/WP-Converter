@@ -7,6 +7,7 @@ Initial Setup:
 Standard setup/ ESS full set up and equipped
 
 Test Equipment:
+Multimeter
 
 Tools:
 Knife
@@ -24,7 +25,9 @@ MOS: 91J
 1 Person
 
 References:
-TM 10-8340-244-13&P (Placeholder)
+TM 10-8340-244-10
+TM 10-8340-244-23&P (Placeholder)
+WP 0036
 WP 0037 (placeholder)
 
 Equipment Condition:
