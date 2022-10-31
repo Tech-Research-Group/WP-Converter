@@ -5,75 +5,36 @@ from tkinter.constants import END, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
 import mos_codes
 
+MOS_NAME = ''
 TOOLS = [ "screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty",
          "loctite", "multimeter", "gloves", "goggles", "wire stripper" ]
+tools_list = []
 
 def get_tools() -> None:
     """Get tools from the list of tools."""
-    onenote = txt_input.get("1.0", END)
-    lines = onenote.splitlines()
+    lines = txt_input.get("1.0", END).splitlines()
+    _x = 1
     # Loop through to find the tools line by line
     for line in lines:
-        if line.startswith("."):
-            if TOOLS[0] in line.lower():
-                if TOOLS[0].lower() not in tools_list:
-                    tools_list.append("screwdriver")
-            elif TOOLS[1] in line.lower():
-                if TOOLS[1].lower() not in tools_list:
-                    tools_list.append("drill")
-            elif TOOLS[2] in line.lower():
-                if TOOLS[2].lower() not in tools_list:
-                    tools_list.append("riveter")
-            elif TOOLS[3] in line.lower():
-                if TOOLS[3].lower() not in tools_list:
-                    tools_list.append("tape")
-            elif TOOLS[4] in line.lower():
-                if TOOLS[4].lower() not in tools_list:
-                    tools_list.append("wrench")
-            elif TOOLS[5] in line.lower():
-                if TOOLS[5].lower() not in tools_list:
-                    tools_list.append("step ladder")
-            elif TOOLS[6] in line.lower():
-                if TOOLS[6].lower() not in tools_list:
-                    tools_list.append("putty")
-            elif TOOLS[7] in line.lower():
-                if TOOLS[7].lower() not in tools_list:
-                    tools_list.append("loctite")
-            elif TOOLS[8] in line.lower():
-                if TOOLS[8].lower() not in tools_list:
-                    tools_list.append("multimeter")
-            elif TOOLS[9] in line.lower():
-                if TOOLS[9].lower() not in tools_list:
-                    tools_list.append("gloves")
-            elif TOOLS[10] in line.lower():
-                if TOOLS[10].lower() not in tools_list:
-                    tools_list.append("goggles")
-            elif TOOLS[11] in line.lower():
-                if TOOLS[11].lower() not in tools_list:
-                    tools_list.append("wire stripper")
-    print(tools_list) 
-    # print(set(tools_list))
+        if line.startswith(".") and TOOLS[_x] in line.lower() and TOOLS[_x].lower() not in tools_list:
+            tools_list.append(TOOLS[_x].lower())
+            _x+=1
+    print(tools_list)
     return tools_list
 
 def get_title() -> str:
     """Gets the title of the work package."""
-    title = split_input()[0]
-    title = title.split(" (")
-    # title = title[0][1:].upper() + '<?Pub _newline?>' + title[1][:-1].upper()
-    title = title[0].upper() + '<?Pub _newline?>' + title[1].upper()
-    return title
+    title = split_input()[0].split(" (")
+    return f'{title[0].upper()}<?Pub _newline?>{title[1].upper()}'
 
 def get_task() -> str:
     """Gets the task of the work package."""
-    task = split_input()[0]
-    task = task.split(" (")
-    task = task[1][:-1].upper()
-    return task
+    task = split_input()[0].split(" (")
+    return task[1][:-1].upper()
 
 def get_task_title() -> str:
     """Gets the maintenance task title."""
-    onenote = txt_input.get("1.0", END)
-    lines = onenote.splitlines()
+    lines = txt_input.get("1.0", END).splitlines()
 
     for line in lines:
         if line.startswith("Maintenance Task Title:"):
@@ -83,28 +44,20 @@ def get_task_title() -> str:
 
 def add_period(step1) -> str:
     """Adds a period to step1's with incorrect closing punctuation."""
-    new_step = ''
-    if not str(step1).endswith("."):
-        new_step = str(step1) + "."
-    return new_step
+    return '' if str(step1).endswith(".") else f"{str(step1)}."
 
 def remove_comments(row) -> str:
     """Removes comments from the output."""
-    clean_line = row.split("[")
-    row = clean_line[0]
-    return row
+    return row.split("[")[0]
 
 def split_input() -> list:
     """Splits the input into a list."""
-    onenote = txt_input.get("1.0", END)
-    lines = onenote.splitlines()
-    return lines
+    return txt_input.get("1.0", END).splitlines()
 
 def create_wpidinfo() -> str:
     """Creates the wpidinfo section into XML."""
     wp_title = get_title()
-    wpidinfo = '<maintwp chngno="0" wpno="">\n'
-    wpidinfo += '\t<wpidinfo>\n'
+    wpidinfo = '<maintwp chngno="0" wpno="">\n' + '\t<wpidinfo>\n'
     wpidinfo += '\t\t<maintlvl level="operator"/>\n'
     wpidinfo += '\t\t<title>' + str(wp_title) + '</title>\n'
     wpidinfo += '\t</wpidinfo>\n'
@@ -112,10 +65,9 @@ def create_wpidinfo() -> str:
 
 def get_mos() -> str:
     """Gets the name of the MOS based on code."""
-    onenote = txt_input.get("1.0", END)
-    lines = onenote.splitlines()
-    global mos_name
-    mos_name = ""
+    lines = txt_input.get("1.0", END).splitlines()
+    global MOS_NAME
+    MOS_NAME = ""
     for line in lines:
         if line.startswith("MOS: "):
             mos_code = line[5:8]
@@ -123,8 +75,8 @@ def get_mos() -> str:
             for key in mos_codes.CODES:
                 if mos_code == key:
                     print(key)
-                    mos_name = mos_codes.CODES.get(key)
-                    print(mos_name)
+                    MOS_NAME = mos_codes.CODES.get(key)
+                    print(MOS_NAME)
                     break
         if line.startswith("MOS:"):
             mos_code = line[4:7]
@@ -132,15 +84,14 @@ def get_mos() -> str:
             for key in mos_codes.CODES:
                 if mos_code == key:
                     print(key)
-                    mos_name = mos_codes.CODES.get(key)
-                    print(mos_name)
+                    MOS_NAME = mos_codes.CODES.get(key)
+                    print(MOS_NAME)
                     break
-    return mos_name
+    return MOS_NAME
 
 def create_initial_setup() -> str:
     """Creates the initial_setup section into XML."""
-    onenote = txt_input.get("1.0", END)
-    lines = onenote.split("\n")
+    lines = txt_input.get("1.0", END).split("\n")
     initial_setup = '\t<initial_setup>\n'
 
     for line in lines:
@@ -222,8 +173,7 @@ def create_initial_setup() -> str:
 
                 while lines[index] != '':
                     # Remove comments
-                    clean_line = lines[index].split("[")
-                    line = clean_line[0]
+                    line = lines[index].split("[")[0]
                     if line.startswith("MOS: "):
                         mos_code = line[5:8]
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
@@ -239,7 +189,8 @@ def create_initial_setup() -> str:
                                 initial_setup += '\t\t\t</persnreq-setup-item>\n'
                             else:
                                 initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                                initial_setup += '\t\t\t\t<name>Additional Personnel: ' + lines[index] + '</name>\n'
+                                initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
+                                    lines[index] + '</name>\n'
                                 initial_setup += '\t\t\t\t<mos/>\n'
                                 initial_setup += '\t\t\t</persnreq-setup-item>\n'
                             index += 1
@@ -258,7 +209,8 @@ def create_initial_setup() -> str:
                                 initial_setup += '\t\t\t</persnreq-setup-item>\n'
                             else:
                                 initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                                initial_setup += '\t\t\t\t<name>Additional Personnel: ' + lines[index] + '</name>\n'
+                                initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
+                                    lines[index] + '</name>\n'
                                 initial_setup += '\t\t\t\t<mos/>\n'
                                 initial_setup += '\t\t\t</persnreq-setup-item>\n'
                             index += 1
@@ -331,54 +283,54 @@ def create_maintsk() -> str:
                 if line.startswith("."):
                     index = lines.index(line)
 
-                    if line.startswith(".Note:"):
+                    if line.startswith(".Note:") or line.startswith(".NOTE:"):
                         maintsk += '\t\t\t\t<step1>\n'
                         maintsk += '\t\t\t\t\t<specpara>\n'
                         maintsk += '\t\t\t\t\t\t<note>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Note: "):
+                        if lines[index].startswith(".Note: ") or lines[index].startswith(".NOTE: "):
                             maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][7:]) + '</trim.para>\n'
                         else:
                             maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][6:]) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</note>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".Caution:"):
+                    elif line.startswith(".Caution:") or line.startswith(".CAUTION:"):
                         maintsk += '\t\t\t\t<step1>\n'
                         maintsk += '\t\t\t\t\t<specpara>\n'
                         maintsk += '\t\t\t\t\t\t<caution>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Caution: "):
+                        if lines[index].startswith(".Caution: ") or lines[index].startswith(".CAUTION: "):
                             maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
                         else:
                             maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</caution>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".Warning:"):
+                    elif line.startswith(".Warning:") or line.startswith(".WARNING:"):
                         maintsk += '\t\t\t\t<step1>\n'
                         maintsk += '\t\t\t\t\t<specpara>\n'
                         maintsk += '\t\t\t\t\t\t<warning>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Warning: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][10:]) + '</trim.para>\n'
+                        if lines[index].startswith(".Warning: ") or lines[index].startswith(".WARNING: "):
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + remove_comments(lines[index][9:]) + '</trim.para>\n'
+                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + remove_comments(lines[index + 1][1:]) + '</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t<para>' + add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
                         maintsk += '\t\t\t\t\t\t</warning>\n'
                         maintsk += '\t\t\t\t\t</specpara>\n'
                         maintsk += '\t\t\t\t</step1>\n'
@@ -434,7 +386,6 @@ def create_maintsk() -> str:
 
 def convert() -> None:
     """Converts the input from OneNote to XML."""
-    global xml
     txt_output.delete("1.0", END)
     try:
         # Call functions that convert input into XML
@@ -446,21 +397,22 @@ def convert() -> None:
         txt_output.insert(END, xml)
 
         # Show the Save button once conversion is complete
-        btn_save = Button(root, text ="Save", font=("Arial",14), fg = "white",bg="#F05454",
-                             activebackground="#007ACC", relief="flat", borderwidth="0", command=lambda:[save(),
-                             btn_save.place_forget()])
-        btn_save.place(relx = 0.5, rely = 0.9, relwidth="0.5", height=100, anchor='nw')
+        btn_save = Button(root, text="Save", font=("Arial",14), fg="white",bg="#F05454",
+                             activebackground="#007ACC", relief="flat", borderwidth="0",
+                             command=lambda:[save(), btn_save.place_forget()])
+        btn_save.place(relx=0.5, rely=0.9, relwidth="0.5", height=100, anchor='nw')
     except IndexError:
-        messagebox.showerror("Error!", "No input found. Paste your OneNote input into the input box on the left before converting. Please try again.")
+        messagebox.showerror("Error!", "No input found. Paste your OneNote input into the input box on \
+            the left before converting. Please try again.")
 
 def save() -> None:
     """Saves the output as an XML file."""
-    xml = txt_output.get("1.0", END)
+    output = txt_output.get("1.0", END)
     filename = filedialog.asksaveasfilename(initialdir = "/",
         title="Select file",filetypes = (("xml files","*.xml"), ("txt files", "*.txt"),
         ("all files","*.*")))
     with open(filename, 'w', encoding='utf-8') as _f:
-        _f.write(xml)
+        _f.write(output)
 
 root = tk.Tk()
 
@@ -468,23 +420,23 @@ root.resizable(False, False)
 root.title("Maintenance Work Package Converter")
 root.configure(background='#222831')
 
-#root.geometry("1008x769") # MacOS
+# root.geometry("1008x769") # MacOS
 root.geometry("1450x900") # Windows
 
 #canvas = tk.Canvas(root, height = 900,width = 1450, background='#222831')
 #canvas.pack( expand = True)
 
 frame1 = Frame(root, bg='#c6cbcf', bd=10)
-frame1.place(relx = 0, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
+frame1.place(relx=0, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
 
 text_scroll1 = Scrollbar(frame1)
-text_scroll1.pack(side="right",fill="y")
+text_scroll1.pack(side="right", fill="y")
 
 #input text
-txt_input = Text(frame1,font =("Arial",13), insertbackground="black", bg = "#c6cbcf",
+txt_input = Text(frame1,font =("Arial",13), insertbackground="black", bg="#ffffff",
                     fg ="black", selectbackground="#30475E", selectforeground="white", undo=True,
                     yscrollcommand=text_scroll1.set, wrap=WORD)
-txt_input.pack(side = "left",fill="y")
+txt_input.pack(side = "left", fill="y")
 
 text_scroll1.config(command=txt_input.yview)
 
@@ -494,28 +446,28 @@ button1 = Button(root, text ="Convert", font=("Arial",14), fg = "white", bg="#F0
 button1.place(relx = 0, rely = .9, relwidth="0.5", height=100, anchor='nw')
 
 label1 = Label(root,text="Copy your work package data from OneNote and paste it in the box below.",
-                  font=("Arial",12), bg='#DDDDDD')
-label1.place(relx=0,rely=0,relwidth=0.5,relheight=0.05)
+                  font=("Arial", 12), bg='#DDDDDD')
+label1.place(relx=0, rely=0, relwidth=0.5, relheight=0.05)
 
 frame2 = Frame(root, bg='#c6cbcf', bd=10)
-frame2.place(relx = 0.5, rely=0.05,relwidth=0.5, relheight=0.85, anchor='nw')
+frame2.place(relx=0.5, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
 
 text_scroll2 = Scrollbar(frame2)
 text_scroll2.pack(side="right", fill="y")
 
 #output text
-txt_output = Text(frame2,font =("Menlo",13),insertbackground="black", bg = "#c6cbcf",
+txt_output = Text(frame2,font =("Menlo", 11),insertbackground="black", bg="#ffffff",
                      fg ="black", selectbackground="#30475E", selectforeground="white",
                      undo=True, yscrollcommand=text_scroll2.set, wrap=WORD)
 txt_output.pack(side="left",fill="y")
 
 font = tkfont.Font(font=txt_output['font'])
 tab=font.measure("    ")
-txt_output.configure(tabs = tab)
+txt_output.configure(tabs=tab)
 
 text_scroll2.config(command=txt_output.yview)
 
 label2 = Label(root, text="Results:", font=("Arial",12), bg='#DDDDDD')
-label2.place(relx = 0.5, rely=0, relwidth=0.5, relheight=0.05)
+label2.place(relx=0.5, rely=0, relwidth=0.5, relheight=0.05)
 
 root.mainloop()

@@ -31,7 +31,7 @@ Equipment Condition:
 Operating under usual conditions (TM___ )
 
 Maintenance Task Here:
-.Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable.
+.Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable
 .Remove shower drain cap
 .figure
 .Install turning tool to drain lock.
@@ -41,8 +41,7 @@ Maintenance Task Here:
 .figure
 .Remove anti-slip mat nearest to showers
 .Note:It my be beneficial to run the shaving mirror sinks in order to find holes in flexible coupling.Remove wooden space-filler[Placeholder]
-.figure
-.Remove five screws securing cover and remove Shower Base Cover Plate. Retain cover and screws.
+.Remove five screws securing cover and remove Shower Base Cover Plate. Retain cover and screws
 .figure
 .Unscrew and remove locking ring, rubber sealing washer and friction washer.
 .figure
