@@ -4,6 +4,7 @@ import tkinter.font as tkfont
 from tkinter.constants import END, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
 import mos_codes
+import xml_scripts as xs
 
 TOOLS = [ "screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty",
          "loctite", "multimeter", "gloves", "goggles", "wire stripper" ]
@@ -54,32 +55,20 @@ def split_input() -> list:
 
 def create_wpidinfo() -> str:
     """Creates the wpidinfo section into XML."""
-    wpidinfo = '<maintwp chngno="0" wpno="">\n' + '\t<wpidinfo>\n'
-    wpidinfo += '\t\t<maintlvl level="operator"/>\n'
-    wpidinfo += '\t\t<title>' + get_title() + '</title>\n'
-    wpidinfo += '\t</wpidinfo>\n'
+    wpidinfo = '<maintwp chngno="0" wpno="">\n\t<wpidinfo>\n\t\t<maintlvl level="operator"/>\n'
+    wpidinfo += '\t\t<title>' + get_title() + '</title>\n\t</wpidinfo>\n'
     return wpidinfo
 
-def get_mos() -> str:
+def get_mos(mos_code) -> str:
     """Gets the name of the MOS based on code."""
-    lines = txt_input.get("1.0", END).splitlines()
-    for line in lines:
-        if line.startswith("MOS: "):
-            mos_code = line[5:8]
-
-            for key in mos_codes.CODES:
-                if mos_code == key:
-                    MOS_NAME = mos_codes.CODES.get(key)
-                    print(f'{key} - {MOS_NAME}')
-                    break
-        if line.startswith("MOS:"):
-            mos_code = line[4:7]
-
-            for key in mos_codes.CODES:
-                if mos_code == key:
-                    MOS_NAME = mos_codes.CODES.get(key)
-                    print(f'{key} - {MOS_NAME}')
-                    break
+    for key in mos_codes.CODES:
+        if mos_code == key:
+            MOS_NAME = mos_codes.CODES.get(key)
+            print(f'{key} - {MOS_NAME}')
+            break
+    if mos_code not in mos_codes.CODES:
+        MOS_NAME = ""
+        messagebox.showerror("Error!", "No MOS code found. If you are going to define a MOS, you need to supply a valid code. Please try again.")
     return MOS_NAME
 
 def create_initial_setup() -> str:
@@ -88,174 +77,134 @@ def create_initial_setup() -> str:
     initial_setup = '\t<initial_setup>\n'
 
     for line in lines:
-        if line.startswith("Test Equipment:"):
-            index = lines.index(line)
+        index = lines.index(line)
+        if line.startswith("Test Equipment:") and lines[index + 1] != '':
+            initial_setup += '\t\t<testeqp>\n'
+            index += 1
 
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<testeqp>\n'
+            while lines[index] != '':
+                initial_setup += xs.testeqp_setup_item(lines[index])
                 index += 1
+            initial_setup += '\t\t</testeqp>\n'
 
-                while lines[index] != '':
-                    initial_setup += '\t\t\t<testeqp-setup-item>\n'
-                    initial_setup += '\t\t\t\t<name>' + line + '</name>\n'
-                    initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += '\t\t\t\t\t<xref itemid="" wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                    initial_setup += '\t\t\t\t</itemref>\n'
-                    initial_setup += '\t\t\t</testeqp-setup-item>\n'
-                    index += 1
-                initial_setup += '\t\t</testeqp>\n'
+        if line.startswith("Tools:") and lines[index + 1] != '':
+            initial_setup += '\t\t<tools>\n'
+            index += 1
 
-        if line.startswith("Tools:"):
-            index = lines.index(line)
-            # global TOOLS_LIST
-            # TOOLS_LIST = []
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<tools>\n'
+            while lines[index] != '':
+                TOOLS_LIST.append(remove_comments(lines[index]).lower())
                 index += 1
-                while lines[index] != '':
-                    TOOLS_LIST.append(remove_comments(lines[index]).lower())
-                    index += 1
 
             for tool in get_tools():
-                initial_setup += '\t\t\t<tools-setup-item>\n'
-                initial_setup += '\t\t\t\t<name>' + tool.capitalize() + '</name>\n'
-                initial_setup += '\t\t\t\t<itemref>\n'
-                initial_setup += '\t\t\t\t\t<xref itemid="" wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                initial_setup += '\t\t\t\t</itemref>\n'
-                initial_setup += '\t\t\t</tools-setup-item>\n'
+                initial_setup += xs.tools_setup_item(tool.capitalize())
             initial_setup += '\t\t</tools>\n'
 
-        if line.startswith("Materials:"):
-            index = lines.index(line)
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<mtrlpart>\n'
-                index += 1
+        if line.startswith("Materials:") and lines[index + 1] != '':
+            initial_setup += '\t\t<mtrlpart>\n'
+            index += 1
 
-                while lines[index] != '':
-                    initial_setup += '\t\t\t<mtrlpart-setup-item>\n'
-                    initial_setup += '\t\t\t\t<name>' + remove_comments(lines[index]) + '</name>\n'
-                    initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += '\t\t\t\t\t<xref itemid="" wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                    initial_setup += '\t\t\t\t</itemref>\n'
-                    initial_setup += '\t\t\t</mtrlpart-setup-item>\n'
+            while lines[index] != '':
+                initial_setup += xs.mtrlpart_setup_item(remove_comments(lines[index]))
+                index += 1
+            initial_setup += '\t\t</mtrlpart>\n'
+
+        if line.startswith("Mandatory Replacement Parts:") and lines[index + 1] != '':
+            initial_setup += '\t\t<mrp>\n'
+            index += 1
+
+            while lines[index] != '':
+                initial_setup += xs.mrp_setup_item(remove_comments(lines[index]))
+                index += 1
+            initial_setup += '\t\t</mrp>\n'
+
+        if line.startswith("Personnel:") and lines[index + 1] != '':
+            initial_setup += '\t\t<persnreq>\n'
+            index += 1
+
+            while lines[index] != '':
+                line = lines[index].split("[")[0] # Remove comments
+                initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                # TODO - REFACTOR THIS TO USE A FUNCTION
+                if line.startswith("MOS: "):
+                    mos_code = line[5:8]
+                    
+                    initial_setup += '\t\t\t\t<name>' + get_mos(mos_code) + '</name>\n'
+                    initial_setup += '\t\t\t\t<mos>' + mos_code + '</mos>\n'
+                    initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     index += 1
-                initial_setup += '\t\t</mtrlpart>\n'
-
-        if line.startswith("Mandatory Replacement Parts:"):
-            index = lines.index(line)
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<mrp>\n'
-                index += 1
-
-                while lines[index] != '':
-                    initial_setup += '\t\t\t<mrp-setup-item>\n'
-                    initial_setup += '\t\t\t\t<name>' + remove_comments(lines[index]) + '</name>\n'
-                    initial_setup += '\t\t\t\t<qty></qty>\n'
-                    initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += '\t\t\t\t\t<xref itemid="MRPL_" wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                    initial_setup += '\t\t\t\t</itemref>\n'
-                    initial_setup += '\t\t\t</mrp-setup-item>\n'
-                    index += 1
-                initial_setup += '\t\t</mrp>\n'
-
-        if line.startswith("Personnel:"):
-            index = lines.index(line)
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<persnreq>\n'
-                index += 1
-
-                while lines[index] != '':
-                    # Remove comments
-                    line = lines[index].split("[")[0]
-                    if line.startswith("MOS: "):
-                        mos_code = line[5:8]
+                    if lines[index] != '' and lines[index].startswith("1"):
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                        initial_setup += '\t\t\t\t<name>' + get_mos() + '</name>\n'
-                        initial_setup += '\t\t\t\t<mos>' + mos_code + '</mos>\n'
-                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                        index += 1
-                        if lines[index] != '':
-                            if lines[index].startswith("1"):
-                                initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                                initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
-                                initial_setup += '\t\t\t\t<mos/>\n'
-                                initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                            else:
-                                initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                                initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
-                                    lines[index] + '</name>\n'
-                                initial_setup += '\t\t\t\t<mos/>\n'
-                                initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                            index += 1
-                    elif line.startswith("MOS:"):
-                        mos_code = line[4:7]
-                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                        initial_setup += '\t\t\t\t<name>' + get_mos() + '</name>\n'
-                        initial_setup += '\t\t\t\t<mos>' + mos_code + '</mos>\n'
-                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                        index += 1
-                        if lines[index] != '':
-                            if lines[index].startswith("1"):
-                                initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                                initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
-                                initial_setup += '\t\t\t\t<mos/>\n'
-                                initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                            else:
-                                initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                                initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
-                                    lines[index] + '</name>\n'
-                                initial_setup += '\t\t\t\t<mos/>\n'
-                                initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                            index += 1
-                    else:
-                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                        if line.startswith("1"):
-                            initial_setup += '\t\t\t\t<name>' + line + '</name>\n'
-                        else:
-                            initial_setup += '\t\t\t\t<name>' + line + '</name>\n'
+                        initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
                         initial_setup += '\t\t\t\t<mos/>\n'
                         initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                        index += 1
-                initial_setup += '\t\t</persnreq>\n'
-
-        if line.startswith("References:"):
-            index = lines.index(line)
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<ref>\n'
-                index += 1
-
-                while lines[index] != '':
-                    initial_setup += '\t\t\t<ref-setup-item>\n'
-                    if lines[index].startswith("TM"):
-                        initial_setup += '\t\t\t\t<extref docno="' + \
-                            remove_comments(lines[index]) + '"/>\n'
                     else:
-                        initial_setup += '\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                    initial_setup += '\t\t\t</ref-setup-item>\n'
+                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                        initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
+                            lines[index] + '</name>\n'
+                        initial_setup += '\t\t\t\t<mos/>\n'
+                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     index += 1
-                initial_setup += '\t\t</ref>\n'
-
-        if line.startswith("Equipment Condition:"):
-            index = lines.index(line)
-            if lines[index + 1] != '':
-                initial_setup += '\t\t<eqpconds>\n'
-                index += 1
-
-                while lines[index] != '':
-                    initial_setup += '\t\t\t<eqpconds-setup-item>\n'
-                    if lines[index].startswith("TM"):
-                        initial_setup += '\t\t\t\t<condition>PLACEHOLDER</condition>\n'
-                        initial_setup += '\t\t\t\t<itemref>\n'
-                        initial_setup += '\t\t\t\t<extref docno="' + lines[index] + '"/>\n'
-                        initial_setup += '\t\t\t\t</itemref>\n'
+                elif line.startswith("MOS:"):
+                    mos_code = line[4:7]
+                    initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                    initial_setup += '\t\t\t\t<name>' + get_mos(mos_code) + '</name>\n'
+                    initial_setup += '\t\t\t\t<mos>' + mos_code + '</mos>\n'
+                    initial_setup += '\t\t\t</persnreq-setup-item>\n'
+                    index += 1
+                    if lines[index] != '' and lines[index].startswith("1"):
+                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                        initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
+                        initial_setup += '\t\t\t\t<mos/>\n'
+                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     else:
-                        initial_setup += '\t\t\t\t<condition>' + lines[index] + '</condition>\n'
-                        initial_setup += '\t\t\t\t<itemref>\n'
-                        initial_setup += '\t\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                        initial_setup += '\t\t\t\t</itemref>\n'
-                    initial_setup += '\t\t\t</eqpconds-setup-item>\n'
+                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                        initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
+                            lines[index] + '</name>\n'
+                        initial_setup += '\t\t\t\t<mos/>\n'
+                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     index += 1
-                initial_setup += '\t\t</eqpconds>\n'
+                else:
+                    initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                    initial_setup += '\t\t\t\t<name>' + line + '</name>\n'
+                    initial_setup += '\t\t\t\t<mos/>\n'
+                    initial_setup += '\t\t\t</persnreq-setup-item>\n'
+                    index += 1
+            initial_setup += '\t\t</persnreq>\n'
+
+        if line.startswith("References:") and lines[index + 1] != '':
+            initial_setup += '\t\t<ref>\n'
+            index += 1
+
+            while lines[index] != '':
+                initial_setup += '\t\t\t<ref-setup-item>\n'
+                if lines[index].startswith("TM"):
+                    initial_setup += '\t\t\t\t<extref docno="' + \
+                        remove_comments(lines[index]) + '"/>\n'
+                else:
+                    initial_setup += '\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
+                initial_setup += '\t\t\t</ref-setup-item>\n'
+                index += 1
+            initial_setup += '\t\t</ref>\n'
+
+        if line.startswith("Equipment Condition:") and lines[index + 1] != '':
+            initial_setup += '\t\t<eqpconds>\n'
+            index += 1
+
+            while lines[index] != '':
+                initial_setup += '\t\t\t<eqpconds-setup-item>\n'
+                if lines[index].startswith("TM"):
+                    initial_setup += '\t\t\t\t<condition>PLACEHOLDER</condition>\n'
+                    initial_setup += '\t\t\t\t<itemref>\n'
+                    initial_setup += '\t\t\t\t<extref docno="' + lines[index] + '"/>\n'
+                    initial_setup += '\t\t\t\t</itemref>\n'
+                else:
+                    initial_setup += '\t\t\t\t<condition>' + lines[index] + '</condition>\n'
+                    initial_setup += '\t\t\t\t<itemref>\n'
+                    initial_setup += '\t\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
+                    initial_setup += '\t\t\t\t</itemref>\n'
+                initial_setup += '\t\t\t</eqpconds-setup-item>\n'
+                index += 1
+            initial_setup += '\t\t</eqpconds>\n'
     initial_setup += '\t</initial_setup>\n'
     return initial_setup
 
