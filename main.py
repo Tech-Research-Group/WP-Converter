@@ -56,7 +56,7 @@ def split_input() -> list:
 def create_wpidinfo() -> str:
     """Creates the wpidinfo section into XML."""
     wpidinfo = '<maintwp chngno="0" wpno="">\n\t<wpidinfo>\n\t\t<maintlvl level="operator"/>\n'
-    wpidinfo += '\t\t<title>' + get_title() + '</title>\n\t</wpidinfo>\n'
+    wpidinfo += f'\t\t<title>{get_title()}</title>\n\t</wpidinfo>\n'
     return wpidinfo
 
 def get_mos(mos_code) -> str:
@@ -123,52 +123,45 @@ def create_initial_setup() -> str:
 
             while lines[index] != '':
                 line = lines[index].split("[")[0] # Remove comments
+
                 initial_setup += '\t\t\t<persnreq-setup-item>\n'
                 # TODO - REFACTOR THIS TO USE A FUNCTION
                 if line.startswith("MOS: "):
                     mos_code = line[5:8]
-                    
-                    initial_setup += '\t\t\t\t<name>' + get_mos(mos_code) + '</name>\n'
-                    initial_setup += '\t\t\t\t<mos>' + mos_code + '</mos>\n'
+                    initial_setup += f'\t\t\t\t<name>{get_mos(mos_code)}</name>\n'
+                    initial_setup += f'\t\t\t\t<mos>{mos_code}</mos>\n'
                     initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     index += 1
+                    
                     if lines[index] != '' and lines[index].startswith("1"):
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
                         initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
-                        initial_setup += '\t\t\t\t<mos/>\n'
-                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                    else:
+                    elif lines[index] != '':
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                        initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
-                            lines[index] + '</name>\n'
-                        initial_setup += '\t\t\t\t<mos/>\n'
-                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
+                        initial_setup += f'\t\t\t\t<name>Additional Personnel: {lines[index]}</name>\n'
+                    else:
+                        break
                     index += 1
                 elif line.startswith("MOS:"):
                     mos_code = line[4:7]
                     initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                    initial_setup += '\t\t\t\t<name>' + get_mos(mos_code) + '</name>\n'
-                    initial_setup += '\t\t\t\t<mos>' + mos_code + '</mos>\n'
+                    initial_setup += f'\t\t\t\t<name>{get_mos(mos_code)}</name>\n'
+                    initial_setup += f'\t\t\t\t<mos>{mos_code}</mos>\n'
                     initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     index += 1
+                    initial_setup += '\t\t\t<persnreq-setup-item>\n'
                     if lines[index] != '' and lines[index].startswith("1"):
-                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
                         initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
-                        initial_setup += '\t\t\t\t<mos/>\n'
-                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
+                    elif lines[index] != '':
+                        initial_setup += f'\t\t\t\t<name>Additional Personnel: {lines[index]}</name>\n'
                     else:
-                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                        initial_setup += '\t\t\t\t<name>Additional Personnel: ' + \
-                            lines[index] + '</name>\n'
-                        initial_setup += '\t\t\t\t<mos/>\n'
-                        initial_setup += '\t\t\t</persnreq-setup-item>\n'
+                        break
                     index += 1
                 else:
-                    initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                    initial_setup += '\t\t\t\t<name>' + line + '</name>\n'
-                    initial_setup += '\t\t\t\t<mos/>\n'
-                    initial_setup += '\t\t\t</persnreq-setup-item>\n'
+                    initial_setup += f'\t\t\t\t<name>{lines[index]}</name>\n'
+                    
                     index += 1
+                initial_setup += '\t\t\t\t<mos/>\n' + '\t\t\t</persnreq-setup-item>\n'
             initial_setup += '\t\t</persnreq>\n'
 
         if line.startswith("References:") and lines[index + 1] != '':
@@ -178,8 +171,7 @@ def create_initial_setup() -> str:
             while lines[index] != '':
                 initial_setup += '\t\t\t<ref-setup-item>\n'
                 if lines[index].startswith("TM"):
-                    initial_setup += '\t\t\t\t<extref docno="' + \
-                        remove_comments(lines[index]) + '"/>\n'
+                    initial_setup += f'\t\t\t\t<extref docno="{remove_comments(lines[index])}"/>\n'
                 else:
                     initial_setup += '\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
                 initial_setup += '\t\t\t</ref-setup-item>\n'
@@ -195,13 +187,12 @@ def create_initial_setup() -> str:
                 if lines[index].startswith("TM"):
                     initial_setup += '\t\t\t\t<condition>PLACEHOLDER</condition>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += '\t\t\t\t<extref docno="' + lines[index] + '"/>\n'
-                    initial_setup += '\t\t\t\t</itemref>\n'
+                    initial_setup += f'\t\t\t\t<extref docno="{lines[index]}"/>\n'
                 else:
-                    initial_setup += '\t\t\t\t<condition>' + lines[index] + '</condition>\n'
+                    initial_setup += f'\t\t\t\t<condition>{lines[index]}</condition>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
                     initial_setup += '\t\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
-                    initial_setup += '\t\t\t\t</itemref>\n'
+                initial_setup += '\t\t\t\t</itemref>\n'
                 initial_setup += '\t\t\t</eqpconds-setup-item>\n'
                 index += 1
             initial_setup += '\t\t</eqpconds>\n'
@@ -215,79 +206,56 @@ def create_maintsk() -> str:
 
     for line in lines:
         if line.startswith("Maintenance Task Here:"):
-            index = lines.index(line)
             # Get the task name and wrap it in xml tags
             task = get_task()
             maintsk += '\t\t<' + task.lower() + '>\n'
-            maintsk += '\t\t\t<proc>\n'
-            maintsk += '\t\t\t\t<title/>\n'
+            maintsk += '\t\t\t<proc>\n' + '\t\t\t\t<title/>\n'
 
             for line in lines:
                 if line.startswith("."):
                     index = lines.index(line)
 
                     if line.startswith(".Note:") or line.startswith(".NOTE:"):
-                        maintsk += '\t\t\t\t<step1>\n'
-                        maintsk += '\t\t\t\t\t<specpara>\n'
-                        maintsk += '\t\t\t\t\t\t<note>\n'
+                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<note>\n'
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Note: ") or lines[index].startswith(".NOTE: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
-                                add_period(remove_comments(lines[index][7:])) + '</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][7:]))}</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
-                                add_period(remove_comments(lines[index][6:])) + '</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][6:]))}</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + \
-                            add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
-                        maintsk += '\t\t\t\t\t\t</note>\n'
-                        maintsk += '\t\t\t\t\t</specpara>\n'
-                        maintsk += '\t\t\t\t</step1>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += '\t\t\t\t\t\t</note>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
                     elif line.startswith(".Caution:") or line.startswith(".CAUTION:"):
-                        maintsk += '\t\t\t\t<step1>\n'
-                        maintsk += '\t\t\t\t\t<specpara>\n'
-                        maintsk += '\t\t\t\t\t\t<caution>\n'
+                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<caution>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Caution: ") or \
                             lines[index].startswith(".CAUTION: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
-                                add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][10:]))}</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
-                                add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][9:]))}</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + \
-                            add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
-                        maintsk += '\t\t\t\t\t\t</caution>\n'
-                        maintsk += '\t\t\t\t\t</specpara>\n'
-                        maintsk += '\t\t\t\t</step1>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += '\t\t\t\t\t\t</caution>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
                     elif line.startswith(".Warning:") or line.startswith(".WARNING:"):
-                        maintsk += '\t\t\t\t<step1>\n'
-                        maintsk += '\t\t\t\t\t<specpara>\n'
-                        maintsk += '\t\t\t\t\t\t<warning>\n'
+                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<warning>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Warning: ") or \
                             lines[index].startswith(".WARNING: "):
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
-                                add_period(remove_comments(lines[index][10:])) + '</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][10:]))}</trim.para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t\t\t<trim.para>' + \
-                                add_period(remove_comments(lines[index][9:])) + '</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][9:]))}</trim.para>\n'
 
-                        maintsk += '\t\t\t\t\t\t\t<para>' + \
-                            add_period(remove_comments(lines[index + 1][1:])) + '</para>\n'
-                        maintsk += '\t\t\t\t\t\t</warning>\n'
-                        maintsk += '\t\t\t\t\t</specpara>\n'
-                        maintsk += '\t\t\t\t</step1>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += '\t\t\t\t\t\t</warning>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
                     elif line.startswith(".figure") or line.startswith(".Figure") \
@@ -300,15 +268,13 @@ def create_maintsk() -> str:
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
                         if lines[index][1:].endswith("."):
-                            maintsk += '\t\t\t\t\t<para>' + \
-                                remove_comments(lines[index][1:]) + '</para>\n'
+                            maintsk += f'\t\t\t\t\t<para>{remove_comments(lines[index][1:])}</para>\n'
                         else:
-                            maintsk += '\t\t\t\t\t<para>' + \
-                                remove_comments(lines[index][1:]) + '.</para>\n'
+                            maintsk += f'\t\t\t\t\t<para>{remove_comments(lines[index][1:])}.</para>\n'
                         maintsk += '\t\t\t\t</step1>\n'
 
             maintsk += '\t\t\t</proc>\n'
-            maintsk += '\t\t</' + task.lower() + '>\n'
+            maintsk += f'\t\t</{task.lower()}>\n'
     maintsk += '\t</maintsk>\n'
 
     for line in lines:
@@ -321,46 +287,53 @@ def create_maintsk() -> str:
                 if lines[index + 1]:
                     # Jump to next line to get the task data
                     followon_maintsk = lines[index + 1]
-                    maintsk += '\t<followon.maintsk>\n'
-                    maintsk += '\t\t<proc>\n'
+                    maintsk += '\t<followon.maintsk>\n' + '\t\t<proc>\n'
                     # Remove comments from the follow-on maintenance task
                     followon_maintsk = add_period(remove_comments(followon_maintsk))
                     # Display the follow-on maintenance task w/o comments
                     maintsk += '\t\t\t<para>' + followon_maintsk + '</para>\n'
-                    maintsk += '\t\t</proc>\n'
-                    maintsk += '\t</followon.maintsk>\n'
+                    maintsk += '\t\t</proc>\n' + '\t</followon.maintsk>\n'
 
             except IndexError:
                 # Display empty follow-on maintenance task tags
                 maintsk += '\t<followon.maintsk>\n'
-                maintsk += '\t\t<proc>\n'
-                maintsk += '\t\t\t<para></para>\n'
-                maintsk += '\t\t</proc>\n'
+                maintsk += '\t\t<proc>\n' + '\t\t\t<para></para>\n' + '\t\t</proc>\n'
                 maintsk += '\t</followon.maintsk>\n'
-                print("No follow-on maintenance task found")
     maintsk += '</maintwp>\n'
     return maintsk
 
 def convert() -> None:
     """Converts the input from OneNote to XML."""
+    # Clear the output box
     txt_output.delete("1.0", END)
+    # Clear the tools list
+    TOOLS_LIST.clear()
     try:
-        # Call functions that convert input into XML
-        xml = create_wpidinfo()
-        xml += create_initial_setup()
-        xml += create_maintsk()
-
-        # Insert XML into the output box
-        txt_output.insert(END, xml)
-
-        # Show the Save button once conversion is complete
-        btn_save = Button(root, text="Save", font=("Arial",14), fg="white",bg="#F05454",
-                             activebackground="#007ACC", relief="flat", borderwidth="0",
-                             command=lambda:[save(), btn_save.place_forget()])
-        btn_save.place(relx=0.5, rely=0.9, relwidth="0.5", height=100, anchor='nw')
+        create_xml()
     except IndexError:
         messagebox.showerror("Error!", "No input found. Paste your OneNote input into \
             the input box on the left before converting. Please try again.")
+
+def create_xml() -> None:
+    """Creates/displays the XML output and calls the Save button."""
+    # Call functions that convert input into XML
+    xml = create_wpidinfo()
+    xml += create_initial_setup()
+    xml += create_maintsk()
+
+    # Insert XML into the output box
+    txt_output.insert(END, xml)
+
+    # Show the Save button
+    show_save_button()
+    
+def show_save_button() -> None:
+    """Shows the Save button."""
+    # Show the Save button once conversion is complete
+    btn_save = Button(root, text="Save", font=("Arial",14), fg="white",bg="#F05454",
+                         activebackground="#007ACC", relief="flat", borderwidth="0",
+                         command=lambda:[save(), btn_save.place_forget()])
+    btn_save.place(relx=0.5, rely=0.9, relwidth="0.5", height=100, anchor='nw')
 
 def save() -> None:
     """Saves the output as an XML file."""

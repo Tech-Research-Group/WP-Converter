@@ -1,5 +1,4 @@
 """DICTIONARY OF MOS CODES AND DESCRIPTIONS"""
-global CODES
 CODES = {
     '09L': 'Interpreter/Translator',
     '11B': 'Infrantryman',
