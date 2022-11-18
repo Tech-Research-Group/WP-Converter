@@ -10,7 +10,7 @@ TOOLS = [ "screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty"
          "loctite", "multimeter", "gloves", "goggles", "wire stripper" ]
 TOOLS_LIST = []
 
-def get_tools() -> None:
+def get_tools() -> list:
     """Get tools from the list of tools."""
     lines = txt_input.get("1.0", END).splitlines()
     # Loop through to find the tools line by line
@@ -40,6 +40,20 @@ def get_task_title() -> str:
             index = lines.index(line)
             task_title = lines[index+1]
     return task_title
+
+def get_wpid() -> str:
+    """Gets the WPID from the input."""
+    lines = txt_input.get("1.0", END).splitlines()
+    for line in lines:
+        if line.startswith("WPID:"):
+            # index = lines.index(line)
+            # wpid = lines[index+1]
+            wpid = line.split("WPID: ")[1]
+    return wpid
+
+def get_tmno() -> str:
+    """Gets the TM number from the input."""
+    return get_wpid()[7:]
 
 def add_period(step1) -> str:
     """Adds a period to step1's with incorrect closing punctuation."""
@@ -173,7 +187,7 @@ def create_initial_setup() -> str:
                 if lines[index].startswith("TM"):
                     initial_setup += f'\t\t\t\t<extref docno="{remove_comments(lines[index])}"/>\n'
                 else:
-                    initial_setup += '\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
+                    initial_setup += f'\t\t\t\t<xref wpid="XXXXXX-{get_tmno()}"/>\n'
                 initial_setup += '\t\t\t</ref-setup-item>\n'
                 index += 1
             initial_setup += '\t\t</ref>\n'
@@ -191,7 +205,7 @@ def create_initial_setup() -> str:
                 else:
                     initial_setup += f'\t\t\t\t<condition>{lines[index]}</condition>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += '\t\t\t\t\t<xref wpid="XXXXXX-XX-XXXX-XXX"/>\n'
+                    initial_setup += f'\t\t\t\t\t<xref wpid="XXXXXX-{get_tmno()}"/>\n'
                 initial_setup += '\t\t\t\t</itemref>\n'
                 initial_setup += '\t\t\t</eqpconds-setup-item>\n'
                 index += 1
@@ -306,6 +320,7 @@ def convert() -> None:
     """Converts the input from OneNote to XML."""
     # Clear the output box
     txt_output.delete("1.0", END)
+
     # Clear the tools list
     TOOLS_LIST.clear()
     try:
@@ -343,6 +358,7 @@ def save() -> None:
         ("all files","*.*")))
     with open(filename, 'w', encoding='utf-8') as _f:
         _f.write(output)
+        _f.close()
 
 root = tk.Tk()
 
