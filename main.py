@@ -6,6 +6,7 @@ from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Tex
 import mos_codes
 import xml_scripts as xs
 
+# FIG_INDEX = 1
 TOOLS = [ "screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty",
          "loctite", "multimeter", "gloves", "goggles", "wire stripper" ]
 TOOLS_LIST = []
@@ -24,7 +25,7 @@ def get_tools() -> list:
 def get_title() -> str:
     """Gets the title of the work package."""
     title = split_input()[0].split(" (")
-    return f'{title[0].upper()}<?Pub _newline?>{title[1].upper()}'
+    return f'{title[0].upper()}<?Pub _newline?>{title[1][:-1].upper()}'
 
 def get_task() -> str:
     """Gets the task of the work package."""
@@ -69,7 +70,7 @@ def split_input() -> list:
 
 def create_wpidinfo() -> str:
     """Creates the wpidinfo section into XML."""
-    wpidinfo = '<maintwp chngno="0" wpno="">\n\t<wpidinfo>\n\t\t<maintlvl level="operator"/>\n'
+    wpidinfo = f'<maintwp chngno="0" wpno="{get_wpid()}">\n\t<wpidinfo>\n\t\t<maintlvl level="operator"/>\n'
     wpidinfo += f'\t\t<title>{get_title()}</title>\n\t</wpidinfo>\n'
     return wpidinfo
 
@@ -85,6 +86,13 @@ def get_mos(mos_code) -> str:
         messagebox.showerror("Error!", "No MOS code found. If you are going to define a MOS, you need to supply a valid code. Please try again.")
     return MOS_NAME
 
+def get_figid(FIG_INDEX):
+    """Creates the last two digits of a figid."""
+    if FIG_INDEX < 10:
+        FIG_INDEX = f"0{FIG_INDEX}"
+    return FIG_INDEX
+
+
 def create_initial_setup() -> str:
     """Creates the initial_setup section into XML."""
     lines = txt_input.get("1.0", END).split("\n")
@@ -97,7 +105,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += xs.testeqp_setup_item(lines[index])
+                initial_setup += xs.testeqp_setup_item(lines[index], get_tmno())
                 index += 1
             initial_setup += '\t\t</testeqp>\n'
 
@@ -110,7 +118,7 @@ def create_initial_setup() -> str:
                 index += 1
 
             for tool in get_tools():
-                initial_setup += xs.tools_setup_item(tool.capitalize())
+                initial_setup += xs.tools_setup_item(tool.capitalize(), get_tmno())
             initial_setup += '\t\t</tools>\n'
 
         if line.startswith("Materials:") and lines[index + 1] != '':
@@ -118,7 +126,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += xs.mtrlpart_setup_item(remove_comments(lines[index]))
+                initial_setup += xs.mtrlpart_setup_item(remove_comments(lines[index]), get_tmno())
                 index += 1
             initial_setup += '\t\t</mtrlpart>\n'
 
@@ -127,7 +135,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += xs.mrp_setup_item(remove_comments(lines[index]))
+                initial_setup += xs.mrp_setup_item(remove_comments(lines[index]), get_tmno())
                 index += 1
             initial_setup += '\t\t</mrp>\n'
 
@@ -175,7 +183,7 @@ def create_initial_setup() -> str:
                     initial_setup += f'\t\t\t\t<name>{lines[index]}</name>\n'
                     
                     index += 1
-                initial_setup += '\t\t\t\t<mos/>\n' + '\t\t\t</persnreq-setup-item>\n'
+                initial_setup += '\t\t\t</persnreq-setup-item>\n'
             initial_setup += '\t\t</persnreq>\n'
 
         if line.startswith("References:") and lines[index + 1] != '':
@@ -217,7 +225,7 @@ def create_maintsk() -> str:
     """Creates the maintsk section into XML."""
     lines = split_input()
     maintsk = '\t<maintsk>\n'
-
+    FIG_INDEX = 1
     for line in lines:
         if line.startswith("Maintenance Task Here:"):
             # Get the task name and wrap it in xml tags
@@ -228,7 +236,7 @@ def create_maintsk() -> str:
             for line in lines:
                 if line.startswith("."):
                     index = lines.index(line)
-
+                    
                     if line.startswith(".Note:") or line.startswith(".NOTE:"):
                         maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<note>\n'
 
@@ -274,11 +282,12 @@ def create_maintsk() -> str:
 
                     elif line.startswith(".figure") or line.startswith(".Figure") \
                         or line.startswith(".FIGURE"):
-                        maintsk += '\t\t\t\t<figure assocfig="">\n'
+                        maintsk += f'\t\t\t\t<figure assocfig="{get_wpid()}-F00{get_figid(FIG_INDEX)}">\n'
+                        # line.split # TODO FINISH ADDING GRAPHIC TITLES
                         maintsk += '\t\t\t\t\t<title></title>\n'
                         maintsk += '\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
                         maintsk += '\t\t\t\t</figure>\n'
-
+                        FIG_INDEX += 1
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
                         if lines[index][1:].endswith("."):

@@ -38,7 +38,7 @@ Operating under usual conditions (TM___ )
 Maintenance Task Here:
 .Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable
 .Remove shower drain cap
-.figure
+.figure (Shower Drain)
 .Install turning tool to drain lock.
 .Unscrew drain lock using turning tool
 .figure
