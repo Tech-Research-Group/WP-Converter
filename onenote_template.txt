@@ -5,9 +5,6 @@ Thursday, September 1, 2022
 
 WPID: M00006-10-5497-225
 
-Initial Setup:
-Standard setup/ ESS full set up and equipped
-
 Test Equipment:
 Multimeter
 
@@ -38,10 +35,10 @@ Operating under usual conditions (TM___ )
 Maintenance Task Here:
 .Warning: Electricity is flowing through the power cable. Shut power off before working on the power cable
 .Remove shower drain cap
-.figure (Shower Drain)
+.figure: Shower Drain
 .Install turning tool to drain lock.
 .Unscrew drain lock using turning tool
-.figure
+.figure: Power Distribution Box A
 .Remove gasket and discard
 .figure
 .Remove anti-slip mat nearest to showers
@@ -57,6 +54,7 @@ Maintenance Task Here:
 .Remove excess putty
 .Place rubber sealing washer and friction washer.[Placeholder]
 .Screw on locking ring.
+.figure: Figure 3 Title
 .Place new rubber gasket, bevel up, in shower drain frame 
 .Insert flexible coupling into the rubber gasket, ensuring the rubber gasket stays parallel with the drain hole.
 .Using the turning tool, attach the drain lock
@@ -65,6 +63,7 @@ Maintenance Task Here:
 .Attach Shower Base Cover Plate using retained screws
 .Place wooden space-filler as to appear flat
 .Place anti-slip mat.
+.figure
 .Stab coworker with a screwdriver
 
 Follow on Maintenance:

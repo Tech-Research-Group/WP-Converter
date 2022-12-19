@@ -6,21 +6,6 @@ from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Tex
 import mos_codes
 import xml_scripts as xs
 
-# FIG_INDEX = 1
-TOOLS = [ "screwdriver", "drill", "riveter", "tape", "wrench", "ladder", "putty",
-         "loctite", "multimeter", "gloves", "goggles", "wire stripper" ]
-TOOLS_LIST = []
-
-def get_tools() -> list:
-    """Get tools from the list of tools."""
-    lines = txt_input.get("1.0", END).splitlines()
-    # Loop through to find the tools line by line
-    for line in lines:
-        if line.startswith("."):
-            for tool in TOOLS:
-                if tool in line.lower() and tool.lower() not in TOOLS_LIST:
-                    TOOLS_LIST.append(tool.lower())
-    return TOOLS_LIST
 
 def get_title() -> str:
     """Gets the title of the work package."""
@@ -32,23 +17,11 @@ def get_task() -> str:
     task = split_input()[0].split(" (")
     return task[1][:-1].upper()
 
-def get_task_title() -> str:
-    """Gets the maintenance task title."""
-    lines = txt_input.get("1.0", END).splitlines()
-
-    for line in lines:
-        if line.startswith("Maintenance Task Title:"):
-            index = lines.index(line)
-            task_title = lines[index+1]
-    return task_title
-
 def get_wpid() -> str:
     """Gets the WPID from the input."""
     lines = txt_input.get("1.0", END).splitlines()
     for line in lines:
         if line.startswith("WPID:"):
-            # index = lines.index(line)
-            # wpid = lines[index+1]
             wpid = line.split("WPID: ")[1]
     return wpid
 
@@ -92,6 +65,11 @@ def get_figid(FIG_INDEX):
         FIG_INDEX = f"0{FIG_INDEX}"
     return FIG_INDEX
 
+def get_fig_title(line) -> str:
+    """Grabs the title of the current figure."""
+    title = line.split(":")
+    return title[1][:-1].upper()
+
 
 def create_initial_setup() -> str:
     """Creates the initial_setup section into XML."""
@@ -114,11 +92,8 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                TOOLS_LIST.append(remove_comments(lines[index]).lower())
+                initial_setup += xs.tools_setup_item(lines[index].capitalize(), get_tmno())
                 index += 1
-
-            for tool in get_tools():
-                initial_setup += xs.tools_setup_item(tool.capitalize(), get_tmno())
             initial_setup += '\t\t</tools>\n'
 
         if line.startswith("Materials:") and lines[index + 1] != '':
@@ -147,7 +122,6 @@ def create_initial_setup() -> str:
                 line = lines[index].split("[")[0] # Remove comments
 
                 initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                # TODO - REFACTOR THIS TO USE A FUNCTION
                 if line.startswith("MOS: "):
                     mos_code = line[5:8]
                     initial_setup += f'\t\t\t\t<name>{get_mos(mos_code)}</name>\n'
@@ -283,8 +257,10 @@ def create_maintsk() -> str:
                     elif line.startswith(".figure") or line.startswith(".Figure") \
                         or line.startswith(".FIGURE"):
                         maintsk += f'\t\t\t\t<figure assocfig="{get_wpid()}-F00{get_figid(FIG_INDEX)}">\n'
-                        # line.split # TODO FINISH ADDING GRAPHIC TITLES
-                        maintsk += '\t\t\t\t\t<title></title>\n'
+                        if lines[index].split(": ")[-1] == '.figure':
+                            maintsk += '\t\t\t\t\t<title></title>\n'
+                        else:
+                            maintsk += f'\t\t\t\t\t<title>{lines[index].split(": ")[-1]}</title>\n'
                         maintsk += '\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
                         maintsk += '\t\t\t\t</figure>\n'
                         FIG_INDEX += 1
@@ -330,13 +306,10 @@ def convert() -> None:
     # Clear the output box
     txt_output.delete("1.0", END)
 
-    # Clear the tools list
-    TOOLS_LIST.clear()
     try:
         create_xml()
     except IndexError:
-        messagebox.showerror("Error!", "No input found. Paste your OneNote input into \
-            the input box on the left before converting. Please try again.")
+        messagebox.showerror("Error!", "No input found. Paste your OneNote data into the input box on the left before converting. Please try again.")
 
 def create_xml() -> None:
     """Creates/displays the XML output and calls the Save button."""
@@ -377,9 +350,6 @@ root.configure(background='#222831')
 
 # root.geometry("1008x769") # MacOS
 root.geometry("1450x900") # Windows
-
-#canvas = tk.Canvas(root, height = 900,width = 1450, background='#222831')
-#canvas.pack( expand = True)
 
 frame1 = Frame(root, bg='#c6cbcf', bd=10)
 frame1.place(relx=0, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')

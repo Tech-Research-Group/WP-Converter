@@ -39,6 +39,3 @@ def mrp_setup_item(line, tm_no) -> str:
     mrp += '\t\t\t\t</itemref>\n'
     mrp += '\t\t\t</mrp-setup-item>\n'
     return mrp
-
-
-    
