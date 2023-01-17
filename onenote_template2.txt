@@ -8,6 +8,7 @@ Multimeter
 Tools:
 Stepladder, 6-FT
 Tool Kit, General Mechanic's (GMTK)
+Wrench, Set (SATS)
 
 Materials:
 Caulking Compound
@@ -21,7 +22,7 @@ Personnel:
 MOS: 91J
 2 People
 
-References:
+References: 
 TM 10-8340-244-23&P
 WP 0036
 
@@ -29,35 +30,60 @@ Equipment Condition:
 Operating under usual conditions
 
 Maintenance Task Here:
-.NOTE: Electricity is flowing through the power cable. Shut power off before working on the power cable
-.Remove shower drain cap
-.Install turning tool to drain lock
+.NOTE: Electricity is flowing through the power cable (F1, I1). Shut power off before working on the power cable
+.Remove shower drain cap (F1, I2)
+
+.Install turning tool to drain lock (F1, I3)
+
 .Unscrew drain lock using turning tool
-.FIGURE: Drain Lock
-.Remove gasket and discard
-.Remove anti-slip mat nearest to showers
-.WARNING: It my be beneficial to run the shaving mirror sinks in order to find holes in flexible coupling.Remove wooden space-filler
-.Remove five screws securing cover and remove shower base cover plate. Retain cover and screws
-.FIGURE: Shower Base Cover Plate
-.Unscrew and remove locking ring, rubber sealing washer and friction washer.
-.Remove shower drain frame
-.Remove tape from shower drain frame
+
+.FIGURE 1: Drain Lock
+
+.Remove gasket (F2, I1) and discard
+
+.Remove anti-slip mat (F2, I2) nearest to showers
+
+.WARNING: It my be beneficial to run the shaving mirror sinks in order to find holes in flexible coupling. Remove wooden space-filler
+.Remove five screws (F2, I3) securing cover and remove shower base cover plate. Retain cover and screws
+
+.FIGURE 2: Shower Base Cover Plate
+
+.Unscrew and remove locking ring, rubber sealing washer (F3, I1) and friction washer
+
+.Remove shower drain frame (F3, I2)
+
+.Remove tape (F3, I3) from shower drain frame
+
 .Place putty around the lip of the new shower drain frame
-.FIGURE: Shower Drain Frame
-.Insert shower drain frame into hole located in the center of the shower pan
+
+.FIGURE 3: Shower Drain Frame
+
+.Insert shower drain frame into hole located in the center of the shower pan (F4, I1)
+
 .Remove excess putty
-.Place rubber sealing washer and friction washer
+
+.Place rubber sealing washer (F4, I2) and friction washer
+
 .Screw on locking ring
-.FIGURE: Locking Ring
+
+.FIGURE 4: Locking Ring
+
 .Place new rubber gasket, bevel up, in shower drain frame 
+
 .Insert flexible coupling into the rubber gasket, ensuring the rubber gasket stays parallel with the drain hole
+
 .Using the turning tool, attach the drain lock
+
 .CAUTION: Do not use a power drill to remove the shower head. The shower head may break
 .Ensure the drain pipe complete seal with drain
+
 .Attach shower base cover plate using retained screws
+
 .Place wooden space-filler as to appear flat
+
 .Place anti-slip mat
-.FIGURE: Anti-slip Mat
+
+.FIGURE 1: Anti-slip Mat
 
 Follow on Maintenance:
 Replace shower head IAW TM 10-8340-244-13&P

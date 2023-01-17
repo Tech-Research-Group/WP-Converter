@@ -1,0 +1,228 @@
+<mrplwp chngno="0" wpno="S00008-10-7360-233"><?Pub Dtl?>
+	<wpidinfo>
+		<maintlvl level="operator"/>
+		<title>MANDATORY REPLACEMENT PARTS LIST</title>
+	</wpidinfo>
+	<intro>
+		<para0>
+			<title/>
+			<subpara1>
+				<title>Scope</title>
+				<para>This work package includes a list of all mandatory replacement parts referenced in initial setups and procedures including those referenced in Preventive Maintenance Checks and Services. These are items that must be replaced during maintenance whether they have failed or not. This includes items based on usage intervals such as miles, time, rounds fired, etc.</para>
+			</subpara1>
+			<subpara1>
+				<title>Explanation of Columns in the Mandatory Replacement Parts List</title>
+				<para>Column (1) Item No. This number is assigned to entry in list and is referenced in narrative instructions to identify item (e.g., Use O-ring (WP 0098, item 5)).</para>
+				<para>Column (2) Part Number / (CAGEC). Identifies part number of item and manufacturer&apos;s Commercial and Government Entity Code (CAGEC) to be used for requisitioning purposes.</para>
+				<para>Column (3) National Stock Number (NSN) Identifies stock number of item to be used for requisitioning purposes.</para>
+				<para>Column (4) Nomenclature. The official names of equipment as shown in FEDLOG H6 listing.</para>
+				<para>Column (5) Qty. Indicates quantity required.</para>
+			</subpara1>
+		</para0>
+	</intro>
+	<mrpl>
+		<title>Mandatory Replacement Parts</title>
+		<mrpl-entry id="MRPL_1">
+			<itemno>1</itemno>
+			<partno>55855</partno>
+			<cageno>94833</cageno>
+			<nsn>
+				<fsc>5640</fsc>
+				<niin>01-152-8458</niin>
+			</nsn>
+			<name>TAPE, DUCT</name>
+			<qty>A.R.</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_19">
+			<!-- THIS IS USED ON THE FOLLOWING: Solenoid Valve -->
+			<itemno>2</itemno>
+			<partno>6AZC4</partno>
+			<cageno>72CY0</cageno>
+			<nsn>
+				<fsc></fsc>
+				<niin></niin>
+			</nsn>
+			<name>CONNECTOR,HOSE,BULK, 1/2-INCH NPT BULKHEAD FITTING 0.53" THREAD ENGAGEMENT</name>
+			<qty>1</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_2">
+			<!-- THIS IS USED ON THE FOLLOWING: Bonding Jumper (Door)(1); 60-A Receptacle (4)-->
+			<itemno>3</itemno>
+			<partno>90631A411</partno>
+			<cageno>2V507</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-527-3369</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON: NYLOCK 10-32, CRES</name>
+			<qty>5</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_3">
+			<!-- THIS IS USED ON THE FOLLOWING: GFCIs in Raceway (2x6) -->
+			<itemno>4</itemno>
+			<partno>90640A130</partno>
+			<cageno>3A054</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-952-1558</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON:</name>
+			<qty>12</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_4">
+			<!-- THIS IS USED ON THE FOLLOWING: CWE Indicator Adapter Plate (4); 60-A Adapter PLate (4); 20-A Adapter Plate (6); Blank Adapter Plate (4) -->
+			<itemno>5</itemno>
+			<partno>91475A391</partno>
+			<cageno>39428</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-687-6943</niin>
+			</nsn>
+			<name>WASHER, LOCK, #10, SS</name>
+			<qty>22</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_5">
+			<!-- THIS IS USED ON THE FOLLOWING: Light Mounting Bracket (4x2) -->
+			<itemno>6</itemno>
+			<partno>91831A007</partno>
+			<cageno>39428</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-483-2638</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON: NYLOCK 6-32</name>
+			<qty>8</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_7">
+			<!-- THIS IS USED ON THE FOLLOWING: Tabletop Leg Assy (2x2) -->
+			<itemno>7</itemno>
+			<partno>91831A125</partno>
+			<cageno>39428</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-559-8280</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON: NYLOCK 5/16-24</name>
+			<qty>4</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_6">
+			<!-- THIS IS USED ON THE FOLLOWING: Right Door Latch (5); Right Door Strike (2) -->
+			<itemno>8</itemno>
+			<partno>M24243/6-A404H</partno>
+			<cageno>81349</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>00-882-8386</niin>
+			</nsn>
+			<name>RIVET, BLIND, CLOSED, DOMED HEAD, 1/8 DIA, .188 - .250 GRIP, ALUMINUM</name>
+			<qty>7</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_8">
+			<!-- THIS IS USED ON THE FOLLOWING: Vent Fan (8) -->
+			<itemno>9</itemno>
+			<partno>M45913/3-01CG8Z</partno>
+			<cageno>80205</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-457-3244</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON:</name>
+			<qty>8</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_9">
+			<!-- THIS IS USED ON THE FOLLOWING: Ground Stud (Internal) -->
+			<itemno>10</itemno>
+			<partno>MS16213-65</partno>
+			<cageno>96906</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>00-584-6858</niin>
+			</nsn>
+			<name>WASHER,LOCK</name>
+			<qty>1</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_10">
+			<!-- THIS IS USED ON THE FOLLOWING: 20-A CWE Receptacles (4x4) -->
+			<itemno>11</itemno>
+			<partno>MS21044N04</partno>
+			<cageno>80205</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>00-088-0551</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON: NUT, CRES W/ NYLON INSERT, #4-40 (OR COMMERCIAL EQUIVALENT)</name>
+			<qty>16</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_11">
+			<!-- THIS IS USED ON THE FOLLOWING: Bonding Jumper -->
+			<itemno>12</itemno>
+			<partno>MS35335-35</partno>
+			<cageno>96906</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>00-627-6128</niin>
+			</nsn>
+			<name>WASHER,LOCK: 3/8-INCH, EXTERNAL TOOTH, CRES</name>
+			<qty>1</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_12">
+			<!-- THIS IS USED ON THE FOLLOWING: Vent Fan Terminal Block Cover (1) -->
+			<itemno>13</itemno>
+			<partno>MS35335-58</partno>
+			<cageno>96906</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>00-209-1366</niin>
+			</nsn>
+			<name>WASHER, LOCK</name>
+			<qty>1</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_13">
+			<!-- THIS IS USED ON THE FOLLOWING: Vent Fan Terminal Block Cover (1) -->
+			<itemno>14</itemno>
+			<partno>MS35335-59</partno>
+			<cageno>96906</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>00-614-3552</niin>
+			</nsn>
+			<name>WASHER, LOCK</name>
+			<qty>1</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_14">
+			<!-- THIS IS USED ON THE FOLLOWING: Backsplash Assembly (16); Tabletop Locking Arm (2x2) -->
+			<itemno>15</itemno>
+			<partno>NNES25C</partno>
+			<cageno>97852</cageno>
+			<nsn>
+				<fsc>5310</fsc>
+				<niin>01-416-1851</niin>
+			</nsn>
+			<name>NUT, SELF-LOCKING, HEXAGON: NYLOCK 1/4-20 S.S.</name>
+			<qty>20</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_15">
+			<itemno>16</itemno>
+			<partno>R20P</partno>
+			<cageno>55752</cageno>
+			<nsn>
+				<fsc>2910-</fsc>
+				<niin>01-524-3009</niin>
+			</nsn>
+			<name>FILTER ELEMENT, FLUID</name>
+			<qty>1</qty>
+		</mrpl-entry>
+		<mrpl-entry id="MRPL_16">
+			<!-- THIS IS USED ON THE FOLLOWING: Catch, Clamping, Latch Receiving (6x20); Catch, Clamping, Lever Locking (8x20); Right Door Hinge (38); Rear Door Lock (6) -->
+			<itemno>17</itemno>
+			<partno>SSB6-4SCLD</partno>
+			<cageno>58BK0</cageno>
+			<nsn>
+				<fsc>5320</fsc>
+				<niin>01-643-8708</niin>
+			</nsn>
+			<name>RIVET, BLIND, BLIND, DOME HEAD, CLOSED END, SS, 3/16 X .126-.250 GRIP</name>
+			<qty>324</qty>
+		</mrpl-entry>
+	</mrpl>
+</mrplwp>

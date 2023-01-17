@@ -1,0 +1,5365 @@
+<macwp chngno="0" wpno="S00003-10-7360-233">
+	<wpidinfo>
+		<maintlvl level="maintainer"/>
+		<title>MAINTENANCE ALLOCATION CHART (MAC)</title>
+	</wpidinfo>
+	<!-- MAC GROUP STARTS HERE -->
+	<mac>
+		<title>Maintenance Allocation Chart (MAC)</title>
+		<mac-group-2lvl>
+			<groupno>00</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>EXPEDITIONARY TRICON FOOD SANITATION SYSTEM</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>1.0</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="paint"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="prepstore"/>
+					<maintclass-2lvl>
+						<c>1.0</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="prepship"/>
+					<maintclass-2lvl>
+						<c>1.0</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="transport"/>
+					<maintclass-2lvl>
+						<c>1.0</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FOOD SANITATION SYSTEM SHELTER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.3</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>EXPANDABLE PANEL INSTALLATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED, FLOOR, WITH DOOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH RECEIVER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_C"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED, FLOOR, NO DOOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH RECEIVER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_C"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED,CEILING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.6</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH RECEIVER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_C"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010104</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED, RIGHT WING PANEL ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010401</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH LOCKING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_D"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010105</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED, LEFT WING WALL PANEL ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>1.0</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010501</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH LOCKING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_D"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010106</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED, END PANEL ASSEMBLY, WITH DOOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<f>0.6</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_E"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<f>1.0</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_E"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_E"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010601</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH LOCKING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_D"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010602</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH RECEIVER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_C"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010603</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>DOOR, ACCESS, UTILITY, RIGHT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.8</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0101060301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LATCH, DOOR, VEHICULAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0101060302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>STRIKE, CATCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010107</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, BUILDING, PREFABRICATED, END PANEL ASSEMBLY, NO DOOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<f>0.6</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_E"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<f>1.0</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_15"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_E"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_E"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010701</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH LOCKING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_D"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01010702</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CATCH, CLAMPING, LATCH RECEIVER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_C"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>DOOR ASSEMBLY, ACCESS, UTILITY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>010201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>DOOR, ACCESS, UTILITY, REAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.4</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01020101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HANDLE, DOOR, ACCESS, UTILITY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01020102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LATCH ASSEMBLY, DOOR, ACCESS, UTILITY, REAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>01020103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LOCK, DOOR, ACCESS, UTILITY, REAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>02</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PACKOUT COMPONENTS, ETFSS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>1.0</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONDITIONER, AIR, MODIFIED</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.4</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="service"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>020101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CABLE ASSEMBLY, POWER, ELECTRICAL</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HEATER, SPACE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>020201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>BRACKET, MOUNTING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0203</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE ASSEMBLY, NONMETALLIC</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0204</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SHELF, STOWAGE, VEHICULAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>020401</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PAD, CUSHIONING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0205</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TANK, FABRIC, COLLAPSABLE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<!--<mac-group-2lvl>
+			<groupno>0206</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING ASSEMBLY, QUICK DISCONNECT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>-->
+		<mac-group-2lvl>
+			<groupno>0206</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>ADAPTER, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>020601</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, FEMALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>020602</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, MALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0207</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CAN, MILITARY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0208</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CABLE ASSEMBLY, POWER, ELECTRICAL,60-A</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_I"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0209</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PIGTAIL CABLE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_I"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>03</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>INSTALLATION, CONTAINER I/O PAN</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>1.2</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>I/O PAN, ASSEMBLY, SUPPLY, ETFSS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>2.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_7"/>
+						<teref refs="MAC_TOOL_9"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>ADAPTER, STRAIGHT, PIPE TO HOSE, SOURCE WATER INLET</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CAP, PROTECTIVE, DUST AND MOISTURE SEAL, WATER INLET</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>I/O PAN ASSEMBLY, WASTEWATER AND FUEL, ETFSS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>2.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_7"/>
+						<teref refs="MAC_TOOL_10"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, WASTEWATER OUTLET</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CAP, PROTECTIVE, DUST AND MOISTURE SEAL, WASTEWATER OUTLET</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030203</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING, THROUGH-WALL, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>03020301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, FEMALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>03020302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, MALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030204</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PLUG, PROTECTIVE, DUST AND MOISTURE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>030205</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CAP, PROTECTIVE, DUST AND MOISTURE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>04</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>INSTALLATION, EXHAUST FAN AND FILTER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.5</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.5</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0401</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FAN ASSEMBLY, EXHAUST</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>040101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FAN, AIR, EXHAUST, MODIFIED</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0402</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FAN, TUBAXIEL</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>040201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FAN, VENTILATING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>040202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COVER, PROTECTIVE, DUST AND MOISTURE SEAL, EXHAUST FAN TERMINAL BLOCK</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0403</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FILTER ELEMENT, INTAKE AIR CLEANER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_2"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>040301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FILTER, AIR INTAKE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>040302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>BUTTON, DOOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>05</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LEVEL, PLATE MOUNTED, INSTALLATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0501</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LEVEL, PLATE MOUNTED</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>06</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SHEATHING INSTALLATION, CEILING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>2.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>07</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SHEATHING INSTALLATION, WALLS,CONTAINER, V4.5 ETS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>2.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>08</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>INTERIOR WALL TRIM INSTALLATION,V4.5 ETS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>2.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>09</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>ETFSS INSTALLATION ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0901</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LED LIGHT TRACK ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>090101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>INTERRUPTER, GROUND FAULT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>090102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FIXTURE, LIGHTING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.7</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>09010201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>POWER SUPPLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>09010202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>GROMMET, NONMETALLIC</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>090103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>RACEWAY, METALLIC</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>09010301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COVER, RACEWAY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>09010302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>END CAP, RACEWAY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>090104</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>OUTLET, DUPLEX</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0902</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>EMERGENCY STOP</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0903</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONTROL, VENTILATING FAN</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0904</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SWITCH, MOMENTARY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0905</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SWITCH, ROCKER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0906</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SWITCH, ROCKER, 3 POSITION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0907</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>DETECTOR, CO</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="service"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0908</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>OUTLET ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0909</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>OUTLET, TWIST-LOCK, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0910</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PUMP, SUPPLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0911</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PUMP, TRANSFER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>1.0</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0912</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SWITCH, PRESSURE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0913</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TANK,WATER, PRECHARGE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="service"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0914</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SOLENOID ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0915</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>VALVE, FOOT, 1/2-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0916</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, WATER, MEDIUM PRESSURE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="repair"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_F"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0917</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>BRACKET, TANK, WATER, PRECHARGE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0918</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>WASTE LINE, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>091801</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>WASTE LINE, HOSE ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>091802</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>WASTE LINE, VALVE ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.6</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>091803</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>WASTE LINE, ELBOW ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.6</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0919</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>FILTER, FUEL</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="service"/>
+					<maintclass-2lvl>
+						<f>0.4</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.8</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0920</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>MANIFOLD, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.4</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0921</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, FUEL, 3/8-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, NONMETALLIC, FUEL, 3/8-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, INTERIOR, FEMALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, INTERIOR, MALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092104</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CLAMP, HOSE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_G"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.5</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_9"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_H"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0922</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, FUEL, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, NONMETALLIC, FUEL, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, INTERIOR, FEMALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092203</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COUPLING HALF, QUICK DISCONNECT, INTERIOR, MALE, 1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>092204</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CLAMP, HOSE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_G"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.5</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_9"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_H"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0923</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PLATE, SINK LOCKING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.5</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_9"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0924</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TAB, SINK ALIGNMENT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.5</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_9"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>0925</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONDUIT, CONTINUOUS-FLEX, LIQUID-TIGHT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.5</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>3 BAY SINKS, TANKS, BACKSPLASH ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>1.0</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1001</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>GREASE INTERCEPTOR &amp; WASTE TANK, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TRAP, GREASE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<c>1.5</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_3"/>
+						<teref refs="MAC_TOOL_4"/>
+						<teref refs="MAC_TOOL_6"/>
+						<teref refs="MAC_TOOL_8"/>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10010101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>VALVE, DRAIN, 1-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10010102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>VALVE, DRAIN, 2-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10010103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, DRAIN, 1-1/4-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10010104</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, DRAIN, 2-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TANK, WASTE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<c>0.2</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.5</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<c>1.5</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_4"/>
+						<teref refs="MAC_TOOL_6"/>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10010201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>VALVE, DRAIN, 1-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10010202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>HOSE, DRAIN, 2-INCH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1002</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>SINK, ASSEMBLY, ETFSS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<c>0.4</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.5</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COVER, SINK</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONNECTOR, SINK</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100203</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>BURNER, MULTI-FUEL, MODULAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<c>0.2</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.3</c>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="repair"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_I"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100204</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COVER, ACCESS, BURNER</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1003</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP, ASSEMBLY ETFSS LONG</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP LEG ASSEMBLY, ETFSS LONG</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP SWIVEL FOOT ASSEMBLY, ETFSS LONG</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100303</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP PIN ASSEMBLY, ETFSS LONG</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100304</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP LOCKING ARM ASSEMBLY, ETFSS LONG</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1004</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP ASSEMBLY, ETFSS SHORT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100401</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP LEG ASSEMBLY, ETFSS SHORT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100402</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP SWIVEL FOOT ASSEMBLY, ETFSS SHORT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100403</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP PIN ASSEMBLY, ETFSS SHORT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100404</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>TABLETOP LOCKING ARM ASSEMBLY, ETFSS SHORT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1005</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL ASSEMBLY, BACKSPLASH</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="remove"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="install"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="clean"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100501</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL ASSEMBLY, BACKSPLASH, FRONT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10050101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>NOZZLE, SWIVEL</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10050102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>AERATOR, FAUCET</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>10050103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LOUVER, VENT, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100502</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>END PANEL ASSEMBLY, BACKSPLASH, LEFT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>100503</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>END PANEL ASSEMBLY, BACKSPLASH, RIGHT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>11</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>ETFSS ELECTRICAL INSTALLATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, POWER DISTRIBUTION, ASSEMBLY</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110101</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>ENCLOSURE, BOX, WELDMENT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>1.0</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110102</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONNECTOR ASSEMBLY, RECEPTACLE, ELECTRICAL, 60-A</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>11010201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PLATE, ADAPTER, 60-A PLUG</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110103</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONNECTOR ASSEMBLY, REC, POWER OUT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>11010301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>ADAPTER PLATE, 120-VAC POWER OUT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>11010302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONNECTOR ASSY, RECEPTACLE, ELECTRICAL, 20-A</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.4</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1101030201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COVER, ELECTRICAL, CONNECTOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1101030202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CONNECTOR, RECEPTACLE, ELECTRICAL</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110104</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CIRCUIT BREAKER, 60-A, 480-VAC</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110105</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PLATE, MOUNTING</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110106</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CIRCUIT BREAKER, 20 A, 240 VAC, 1 POLE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110107</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CIRCUIT BREAKER, 15 A, 240 V, 1 POLE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110108</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>BRACKET, MOUNTING, DIN RAIL END STOP</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110109</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>COIL, ELECTRICAL, MINI, CONTACTOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110111</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LABEL,CIRCUIT ID, ETS FOOD SANITATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110112</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LIGHT, INDICATOR, GREEN</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110113</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>CIRCUIT BREAKER, RESIDUAL CURRENT, 20-A, 1 POLE</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="test"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_5"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110114</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PLATE, WALL, ELECTRICAL</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.1</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110115</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PLATE, MOUNTING, GROUND BAR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.3</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110116</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, POWER, DISTRIBUTION, 200&percnt; , NEUTRAL 100-A</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.5</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>110117</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>BUS, CONDUCTOR</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_J"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<f>0.2</f>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_11"/>
+						<teref refs="MAC_TOOL_12"/>
+						<teref refs="MAC_TOOL_13"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>12</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>MARKER, IDENTIFICATION, CONTAINER, WEIGHT AND LIFT MARKING INSTALLATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1201</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LABEL, ID, PLATE, UID</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1202</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LABEL, ID PLATE, SUPPLEMENT</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>13</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>MARKER, IDENTIFICATION, LABEL AND MARKING INSTALLATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1301</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LABEL, FOOD SANITATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1302</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LABEL, NSN-ETFSS</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>1303</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>LABEL, OPEN FOR OPERATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+		<mac-group-2lvl>
+			<groupno>14</groupno>
+			<compassemgroup-2lvl>
+				<compassem>
+					<name>PANEL, STRUCTURAL, FLOOR, MODIFICATION</name>
+				</compassem>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<c>0.1</c>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_A"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="inspect"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<remarkrefs>
+						<remarkref refs="MAC_REM_B"/>
+					</remarkrefs>
+				</qualify-2lvl>
+				<qualify-2lvl>
+					<maintfunc func="replace"/>
+					<maintclass-2lvl>
+						<d>0.1</d>
+					</maintclass-2lvl>
+					<terefs>
+						<teref refs="MAC_TOOL_14"/>
+					</terefs>
+				</qualify-2lvl>
+			</compassemgroup-2lvl>
+		</mac-group-2lvl>
+	</mac>
+	<!-- MAC GROUP ENDS HERE -->
+	<!-- TOOLS AND test EQUIPMENT STARTS HERE --><?Pub _newpage?>
+	<tereqtab>
+		<title>Tools and Test Equipment for Expeditionary TRICON Food Sanitation System</title>
+		<teref-group>
+			<terefcode id="MAC_TOOL_1">1</terefcode>
+			<maintenance lvl="f"/>
+			<name>Chuck, Air, Inflating</name>
+			<nsn>
+				<fsc>4730</fsc>
+				<niin>01-551-1721</niin>
+			</nsn>
+			<toolno>5401-002 (61796)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_2">2</terefcode>
+			<maintenance lvl="f"/>
+			<name>Dispenser, Sealant</name>
+			<nsn>
+				<fsc>5120</fsc>
+				<niin>01-500-5509</niin>
+			</nsn>
+			<toolno>7622T23 (39428)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_3">3</terefcode>
+			<maintenance lvl="c"/>
+			<name>Handle, Socket Wrench, 3/8-Inch Drive</name>
+			<nsn>
+				<fsc>5120</fsc>
+				<niin>01-474-5182</niin>
+			</nsn>
+			<toolno>F80 (55719)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_4">4</terefcode>
+			<maintenance lvl="c"/>
+			<name>Ladel, Kitchen</name>
+			<nsn>
+				<fsc>7330</fsc>
+				<niin>00-248-1153</niin>
+			</nsn>
+			<toolno>58480 (63277)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_5">5</terefcode>
+			<maintenance lvl="f"/>
+			<name>Multimeter</name>
+			<nsn>
+				<fsc>6625</fsc>
+				<niin>01-409-1017</niin>
+			</nsn>
+			<toolno>FLUKE-77-4 (89536)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_6">6</terefcode>
+			<maintenance lvl="c"/>
+			<name>Scraper, Baker's</name>
+			<nsn>
+				<fsc>4940</fsc>
+				<niin>01-090-1231</niin>
+			</nsn>
+			<toolno>4103W (4CSC3)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_7">7</terefcode>
+			<maintenance lvl="d"/>
+			<name>Shop Equipment, Welding</name>
+			<nsn>
+				<fsc>4940</fsc>
+				<niin>01-090-1231</niin>
+			</nsn>
+			<toolno>SC3431-95-CL-A04 (19204)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_8">8</terefcode>
+			<maintenance lvl="c"/>
+			<name>Socket, Socket Wrench, 1/2-Inch</name>
+			<nsn>
+				<fsc>5120</fsc>
+				<niin>01-335-0882</niin>
+			</nsn>
+			<toolno>SFS161 (55719)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_9">9</terefcode>
+			<maintenance lvl="d"/>
+			<name>Special Tool, Fuel Hose Crimp Clamps</name>
+			<nsn>
+				<fsc/>
+				<niin/>
+			</nsn>
+			<toolno/>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_10">10</terefcode>
+			<maintenance lvl="d"/>
+			<name>Special Tool, I/O Pan</name>
+			<nsn>
+				<fsc/>
+				<niin/>
+			</nsn>
+			<toolno>T0246</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_11">11</terefcode>
+			<maintenance lvl="c"/>
+			<name>Stepladder,2-ft</name>
+			<nsn>
+				<fsc>5440</fsc>
+				<niin>01-582-1967</niin>
+			</nsn>
+			<toolno>8120T24(39428)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_12">12</terefcode>
+			<maintenance lvl="c"/>
+			<name>Stepladder,6-ft</name>
+			<nsn>
+				<fsc>5440</fsc>
+				<niin>01-415-1238</niin>
+			</nsn>
+			<toolno>A14.5 TY1(80204)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_13">13</terefcode>
+			<maintenance lvl="f"/>
+			<name>Tool Kit, Joint General Mechanic's</name>
+			<nsn>
+				<fsc>5180</fsc>
+				<niin>01-605-5146</niin>
+			</nsn>
+			<toolno>T-GMTK2018 (55719)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_14">14</terefcode>
+			<maintenance lvl="f"/>
+			<name>Tool Set, SATS, Base</name>
+			<nsn>
+				<fsc>4910</fsc>
+				<niin>01-490-6453</niin>
+			</nsn>
+			<toolno>KTC-S2000 (00NS2)</toolno>
+		</teref-group>
+		<teref-group>
+			<terefcode id="MAC_TOOL_15">15</terefcode>
+			<maintenance lvl="c"/>
+			<name>Truck, Lift, Fork</name>
+			<nsn>
+				<fsc>3930</fsc>
+				<niin>01-417-2886</niin>
+			</nsn>
+			<toolno>10,000M (1YHH8)</toolno>
+		</teref-group>
+	</tereqtab>
+	<!-- TOOLS AND test EQUIPMENT ENDS HERE -->
+	<!-- REMARKS STARTS HERE --><?Pub _newpage?>
+	<remarktab>
+		<title>Remarks For Expeditionary Tricon Food Sanitation System</title>
+		<remark-group>
+			<remarkcode id="MAC_REM_A">A</remarkcode>
+			<remarks>INSPECT OR TEST AT CREW INDICATES PMCS</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_B">B</remarkcode>
+			<remarks>INSPECT AT DEPOT INDICATES PRESHOP ANALYSIS</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_C">C</remarkcode>
+			<remarks>REPLACEMENT PROCEDURES FOR FLOOR, WALL, AND CEILING MOUNTED LATCH RECEIVERS ARE IDENTICAL.</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_D">D</remarkcode>
+			<remarks>REPLACEMENT PROCEDURES FOR FLOOR, WALL, AND CEILING MOUNTED LATCH LOCKING ASSEMBLIES ARE IDENTICAL.</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_E">E</remarkcode>
+			<remarks>REPLACEMENT PROCEDURES FOR WALL,EXTENSION PANELS ARE IDENTICAL.</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_F">F</remarkcode>
+			<remarks>REPAIR INDICATES REPLACEMENT OF WORM-DRIVE CLAMPS (<xref wpid="M00850-10-7360-233"/>, 0.2 Hrs) OR ROUTING CLAMPS (<xref wpid="M00850-10-7360-233"/>, 0.2 Hrs)</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_G">G</remarkcode>
+			<remarks>FIELD EXPEDIENT REPAIR OF HOSE CLAMPS WILL USE WORM-DRIVE CLAMPS.</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_I">H</remarkcode>
+			<remarks>HOSE CLAMPS REPLACED IN FIELD WITH EXPEDIENT REPAIR PROCEDURE WILL BE REPLACED WITH CRIMPED HOSE CLAMPS AT DEPOT</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_H">I</remarkcode>
+			<remarks>REFER TO <extref docno="TM 10-7310-281-13&amp;P"/> FOR BURNER,GAS HEATING MAINTENANCE INSTRUCTIONS.</remarks>
+		</remark-group>
+		<remark-group>
+			<remarkcode id="MAC_REM_J">J</remarkcode>
+			<remarks>INSPECT AT FIELD INDICATES PMCS</remarks>
+		</remark-group>
+	</remarktab>
+	<!-- REMARKS ENDS HERE -->
+</macwp>

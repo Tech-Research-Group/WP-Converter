@@ -3,6 +3,7 @@ import tkinter as tk
 import tkinter.font as tkfont
 from tkinter.constants import END, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
+import re
 import mos_codes
 import xml_scripts as xs
 
@@ -52,23 +53,18 @@ def get_mos(mos_code) -> str:
     for key in mos_codes.CODES:
         if mos_code == key:
             MOS_NAME = mos_codes.CODES.get(key)
-            print(f'{key} - {MOS_NAME}')
+            # print(f'{key} - {MOS_NAME}')
             break
     if mos_code not in mos_codes.CODES:
         MOS_NAME = ""
         messagebox.showerror("Error!", "No MOS code found. If you are going to define a MOS, you need to supply a valid code. Please try again.")
     return MOS_NAME
 
-def get_figid(FIG_INDEX):
-    """Creates the last two digits of a figid."""
-    if FIG_INDEX < 10:
-        FIG_INDEX = f"0{FIG_INDEX}"
-    return FIG_INDEX
 
 def get_fig_title(line) -> str:
     """Grabs the title of the current figure."""
     title = line.split(":")
-    return title[1][:-1].upper()
+    return title[1][:-1].capitalize()
 
 
 def create_initial_setup() -> str:
@@ -92,7 +88,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += xs.tools_setup_item(lines[index].capitalize(), get_tmno())
+                initial_setup += xs.tools_setup_item(lines[index], get_tmno())
                 index += 1
             initial_setup += '\t\t</tools>\n'
 
@@ -110,7 +106,8 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += xs.mrp_setup_item(remove_comments(lines[index]), get_tmno())
+                initial_setup += xs.mrp_setup_item(remove_comments(lines[index]))
+                # print(lines[index])
                 index += 1
             initial_setup += '\t\t</mrp>\n'
 
@@ -199,7 +196,6 @@ def create_maintsk() -> str:
     """Creates the maintsk section into XML."""
     lines = split_input()
     maintsk = '\t<maintsk>\n'
-    FIG_INDEX = 1
     for line in lines:
         if line.startswith("Maintenance Task Here:"):
             # Get the task name and wrap it in xml tags
@@ -208,19 +204,25 @@ def create_maintsk() -> str:
             maintsk += '\t\t\t<proc>\n' + '\t\t\t\t<title/>\n'
 
             for line in lines:
+                index = lines.index(line)
                 if line.startswith("."):
-                    index = lines.index(line)
                     
-                    if line.startswith(".Note:") or line.startswith(".NOTE:"):
+                    
+                    if line.startswith(".Note:") or line.startswith(".NOTE:"): # and lines[index + 1].startswith(".NOTE:"):
                         maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<note>\n'
 
                         # Remove possible spaces between the colon and the text
                         if lines[index].startswith(".Note: ") or lines[index].startswith(".NOTE: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][7:]))}</trim.para>\n'
-                        else:
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][6:]))}</trim.para>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][7:])))}</trim.para>\n'
+                            
+                            # TODO Fix multiple NOTES in a row
+                            # while lines[index + 1].startswith(".Note: ") or lines[index + 1].startswith(".NOTE: "):
+                            #     index += 1
+                            #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][7:])))}</trim.para>\n'
+                        # else:
+                        #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][6:])))}</trim.para>\n'
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(insert_callouts(remove_comments(lines[index + 1][1:])))}</para>\n'
                         maintsk += '\t\t\t\t\t\t</note>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
@@ -229,13 +231,12 @@ def create_maintsk() -> str:
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Caution: ") or \
-                            lines[index].startswith(".CAUTION: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][10:]))}</trim.para>\n'
-                        else:
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][9:]))}</trim.para>\n'
+                        if lines[index].startswith(".Caution: ") or lines[index].startswith(".CAUTION: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][10:])))}</trim.para>\n'
+                        # else:
+                        #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][9:])))}</trim.para>\n'
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(insert_callouts(remove_comments(lines[index + 1][1:])))}</para>\n'
                         maintsk += '\t\t\t\t\t\t</caution>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
@@ -244,34 +245,33 @@ def create_maintsk() -> str:
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
                         # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Warning: ") or \
-                            lines[index].startswith(".WARNING: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][10:]))}</trim.para>\n'
-                        else:
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(remove_comments(lines[index][9:]))}</trim.para>\n'
+                        if lines[index].startswith(".Warning: ") or lines[index].startswith(".WARNING: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][10:])))}</trim.para>\n'
+                        # else:
+                        #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][9:])))}</trim.para>\n'
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(insert_callouts(remove_comments(lines[index + 1][1:])))}</para>\n'
                         maintsk += '\t\t\t\t\t\t</warning>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".figure") or line.startswith(".Figure") \
-                        or line.startswith(".FIGURE"):
-                        maintsk += f'\t\t\t\t<figure assocfig="{get_wpid()}-F00{get_figid(FIG_INDEX)}">\n'
+                    elif line.startswith(".figure") or line.startswith(".Figure") or line.startswith(".FIGURE"):
+                        maintsk += f'\t\t\t\t<figure id="{get_wpid()}-F00{insert_figid(line)}">\n'
                         if lines[index].split(": ")[-1] == '.figure':
                             maintsk += '\t\t\t\t\t<title></title>\n'
                         else:
                             maintsk += f'\t\t\t\t\t<title>{lines[index].split(": ")[-1]}</title>\n'
                         maintsk += '\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
                         maintsk += '\t\t\t\t</figure>\n'
-                        FIG_INDEX += 1
+                    
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
                         if lines[index][1:].endswith("."):
-                            maintsk += f'\t\t\t\t\t<para>{remove_comments(lines[index][1:])}</para>\n'
+                            maintsk += f'\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index][1:]))}</para>\n'
                         else:
-                            maintsk += f'\t\t\t\t\t<para>{remove_comments(lines[index][1:])}.</para>\n'
+                            maintsk += f'\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index][1:]))}.</para>\n'
                         maintsk += '\t\t\t\t</step1>\n'
-
+                elif line == "":
+                    index += 1
             maintsk += '\t\t\t</proc>\n'
             maintsk += f'\t\t</{task.lower()}>\n'
     maintsk += '\t</maintsk>\n'
@@ -288,7 +288,7 @@ def create_maintsk() -> str:
                     followon_maintsk = lines[index + 1]
                     maintsk += '\t<followon.maintsk>\n' + '\t\t<proc>\n'
                     # Remove comments from the follow-on maintenance task
-                    followon_maintsk = add_period(remove_comments(followon_maintsk))
+                    followon_maintsk = add_period(insert_iaw(remove_comments(followon_maintsk)))
                     # Display the follow-on maintenance task w/o comments
                     maintsk += '\t\t\t<para>' + followon_maintsk + '</para>\n'
                     maintsk += '\t\t</proc>\n' + '\t</followon.maintsk>\n'
@@ -300,6 +300,19 @@ def create_maintsk() -> str:
                 maintsk += '\t</followon.maintsk>\n'
     maintsk += '</maintwp>\n'
     return maintsk
+
+def insert_iaw(line):
+    """Parse a line for IAW's and inputs correct XML syntax."""
+    if "IAW" in line:
+        start = line.split(" IAW")[0]
+        ref = line.split("IAW")[1][1:]
+
+        if "TM" in line:
+            new_line = f"{start} IAW (<extref docno='{ref}'/>)"
+        else:
+            new_line = f"{start} IAW {ref} (<xref wpid=''/>)"
+        print(new_line)
+        return new_line
 
 def convert() -> None:
     """Converts the input from OneNote to XML."""
@@ -323,7 +336,38 @@ def create_xml() -> None:
 
     # Show the Save button
     show_save_button()
-    
+
+def insert_callouts(row) -> None:
+    """Scans through the xml output and inserts callouts where they belong."""
+    if "(F" in row:
+        row1 = row.split("(F")
+        row1 = row1[0]
+        assocfig = row.split("(F")
+        assocfig = assocfig[1].split(", I")
+        assocfig = int(assocfig[0])
+        if assocfig < 10:
+            assocfig = f"0{assocfig}"
+        if ", I" in row:
+            label = row.split(", I")
+            label= label[1].split(")")
+            label = int(label[0])
+        if ")" in row:
+            row2 = row.split(")")
+            row2 = row2[1]
+            
+            return f'{row1}<callout assocfig="{get_wpid()}-F00{assocfig}" label="{label}"/>{row2}'
+    else:
+        return row
+
+def insert_figid(line):
+    """Scans through the xml output and inserts figure id's where they belong."""
+    if ".FIGURE" in line or ".figure" in line:
+        figid = re.findall('[0-9]+', line)
+        figid = int(figid[0])
+        if figid < 10:
+            figid = f"0{figid}"
+        return figid
+
 def show_save_button() -> None:
     """Shows the Save button."""
     # Show the Save button once conversion is complete
@@ -349,7 +393,7 @@ root.title("Maintenance Work Package Converter")
 root.configure(background='#222831')
 
 # root.geometry("1008x769") # MacOS
-root.geometry("1450x900") # Windows
+root.geometry("1450x1000") # Windows
 
 frame1 = Frame(root, bg='#c6cbcf', bd=10)
 frame1.place(relx=0, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
@@ -369,6 +413,11 @@ text_scroll1.config(command=txt_input.yview)
 button1 = Button(root, text ="Convert", font=("Arial",14), fg="white", bg="#F05454",
                     activebackground="#007ACC", relief="flat", borderwidth="0", command=convert)
 button1.place(relx = 0, rely = .9, relwidth="0.5", height=100, anchor='nw')
+
+# btn_mrp = Button(root, text="Select MRP", font=("Arial",14), fg="white",bg="#F05454",
+#                          activebackground="#007ACC", relief="flat", borderwidth="0",
+#                          command=search_mrp)
+# btn_mrp.place(relx=0.5, rely=0.9, relwidth="0.5", height=100, anchor='nw')
 
 label1 = Label(root,text="Copy your work package data from OneNote and paste it in the box below.",
                   font=("Arial", 12), bg='#DDDDDD')
