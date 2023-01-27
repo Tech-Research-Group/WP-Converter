@@ -53,7 +53,7 @@ def get_mos(mos_code) -> str:
     for key in mos_codes.CODES:
         if mos_code == key:
             MOS_NAME = mos_codes.CODES.get(key)
-            # print(f'{key} - {MOS_NAME}')
+            print(f'{key} - {MOS_NAME}')
             break
     if mos_code not in mos_codes.CODES:
         MOS_NAME = ""
@@ -107,7 +107,7 @@ def create_initial_setup() -> str:
 
             while lines[index] != '':
                 initial_setup += xs.mrp_setup_item(remove_comments(lines[index]))
-                # print(lines[index])
+                print(lines[index])
                 index += 1
             initial_setup += '\t\t</mrp>\n'
 
@@ -129,31 +129,19 @@ def create_initial_setup() -> str:
                     if lines[index] != '' and lines[index].startswith("1"):
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
                         initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
+                        initial_setup += '\t\t\t\t<mos></mos>\n'
                     elif lines[index] != '':
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                        initial_setup += f'\t\t\t\t<name>Additional Personnel: {lines[index]}</name>\n'
+                        personnel = re.findall('[0-9]+', lines[index])
+                        initial_setup += '\t\t\t\t<name>Additional Personnel</name>\n'
+                        initial_setup += f'\t\t\t\t<qty>{personnel[0]}</qty>\n'
                     else:
                         break
-                    index += 1
-                elif line.startswith("MOS:"):
-                    mos_code = line[4:7]
-                    initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                    initial_setup += f'\t\t\t\t<name>{get_mos(mos_code)}</name>\n'
-                    initial_setup += f'\t\t\t\t<mos>{mos_code}</mos>\n'
-                    initial_setup += '\t\t\t</persnreq-setup-item>\n'
-                    index += 1
-                    initial_setup += '\t\t\t<persnreq-setup-item>\n'
-                    if lines[index] != '' and lines[index].startswith("1"):
-                        initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
-                    elif lines[index] != '':
-                        initial_setup += f'\t\t\t\t<name>Additional Personnel: {lines[index]}</name>\n'
-                    else:
-                        break
-                    index += 1
+
                 else:
                     initial_setup += f'\t\t\t\t<name>{lines[index]}</name>\n'
-                    
-                    index += 1
+
+                index += 1
                 initial_setup += '\t\t\t</persnreq-setup-item>\n'
             initial_setup += '\t\t</persnreq>\n'
 
@@ -206,51 +194,61 @@ def create_maintsk() -> str:
             for line in lines:
                 index = lines.index(line)
                 if line.startswith("."):
-                    
-                    
-                    if line.startswith(".Note:") or line.startswith(".NOTE:"): # and lines[index + 1].startswith(".NOTE:"):
+
+                    if line.startswith(".Note: ") or line.startswith(".NOTE: "): # and lines[index + 1].startswith(".NOTE:"):
                         maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<note>\n'
 
-                        # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Note: ") or lines[index].startswith(".NOTE: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][7:])))}</trim.para>\n'
+                        while lines[index].startswith(".NOTE: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_callouts(remove_comments(lines[index][7:]))}.</trim.para>\n'
+                            lines[index] = ""
+                            index += 1
                             
-                            # TODO Fix multiple NOTES in a row
-                            # while lines[index + 1].startswith(".Note: ") or lines[index + 1].startswith(".NOTE: "):
-                            #     index += 1
-                            #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][7:])))}</trim.para>\n'
-                        # else:
-                        #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][6:])))}</trim.para>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index + 1][1:]))}.\n'
+                        index += 1
+                        lines[index] = ""
+                        # TODO Fix adding step2s here
+                        # index += 1
+                        # while lines[index].startswith(".."):
+                        #     maintsk += '\t\t\t\t\t\t\t\t<step2>\n'
+                        #     maintsk += f'\t\t\t\t\t\t\t\t\t<para>{insert_callouts(lines[index][2:])}.</para>\n'
+                        #     maintsk += '\t\t\t\t\t\t\t\t</step2>\n'
+                        #     index += 1
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(insert_callouts(remove_comments(lines[index + 1][1:])))}</para>\n'
+                        maintsk += '\t\t\t\t\t\t\t</para>\n'
                         maintsk += '\t\t\t\t\t\t</note>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".Caution:") or line.startswith(".CAUTION:"):
+                    elif line.startswith(".Caution: ") or line.startswith(".CAUTION: "):
                         maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<caution>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
-                        # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Caution: ") or lines[index].startswith(".CAUTION: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][10:])))}</trim.para>\n'
-                        # else:
-                        #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][9:])))}</trim.para>\n'
+                        while lines[index].startswith(".Caution: ") or lines[index].startswith(".CAUTION: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_callouts(remove_comments(lines[index][10:]))}.</trim.para>\n'
+                            lines[index] = ""
+                            index += 1
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(insert_callouts(remove_comments(lines[index + 1][1:])))}</para>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index + 1][1:]))}.\n'
+                        index += 1
+                        lines[index] = ""
+
+                        maintsk += '\t\t\t\t\t\t\t</para>\n'
                         maintsk += '\t\t\t\t\t\t</caution>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".Warning:") or line.startswith(".WARNING:"):
+                    elif line.startswith(".Warning: ") or line.startswith(".WARNING: "):
                         maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<warning>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
-                        # Remove possible spaces between the colon and the text
-                        if lines[index].startswith(".Warning: ") or lines[index].startswith(".WARNING: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][10:])))}</trim.para>\n'
-                        # else:
-                        #     maintsk += f'\t\t\t\t\t\t\t<trim.para>{add_period(insert_callouts(remove_comments(lines[index][9:])))}</trim.para>\n'
+                        while lines[index].startswith(".Warning: ") or lines[index].startswith(".WARNING: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_callouts(remove_comments(lines[index][10:]))}.</trim.para>\n'
+                            lines[index] = ""
+                            index += 1
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{add_period(insert_callouts(remove_comments(lines[index + 1][1:])))}</para>\n'
+                        maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index + 1][1:]))}.</para>\n'
+                        index += 1
+                        lines[index] = ""
+
+                        maintsk += '\t\t\t\t\t\t\t</para>\n'
                         maintsk += '\t\t\t\t\t\t</warning>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
@@ -262,13 +260,28 @@ def create_maintsk() -> str:
                             maintsk += f'\t\t\t\t\t<title>{lines[index].split(": ")[-1]}</title>\n'
                         maintsk += '\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
                         maintsk += '\t\t\t\t</figure>\n'
-                    
+
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
-                        if lines[index][1:].endswith("."):
-                            maintsk += f'\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index][1:]))}</para>\n'
-                        else:
-                            maintsk += f'\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index][1:]))}.</para>\n'
+                        # maintsk += f'\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index][1:]))}.</para>\n'
+                        maintsk += f'\t\t\t\t\t<para>{insert_callouts(lines[index][1:])}.\n'
+                        
+                        while lines[index + 1].startswith("..") and not lines[index + 1].startswith("..."):
+                            maintsk += '\t\t\t\t\t\t<step2>\n'
+                            maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(lines[index + 1][2:])}.\n'
+                            
+                            # TODO Fix loop creating step2/3s interfering w/ one another
+                            # while lines[index + 1].startswith("..."):
+                            #     maintsk += '\t\t\t\t\t\t\t\t<step3>\n'
+                            #     maintsk += f'\t\t\t\t\t\t\t\t<para>{insert_callouts(lines[index + 1][3:])}.</para>\n'
+                            #     maintsk += '\t\t\t\t\t\t\t\t</step3>\n'
+                            #     lines[index + 1] = ''
+                            #     index += 1
+                            maintsk += '\t\t\t\t\t\t\t</para>\n'
+                            maintsk += '\t\t\t\t\t\t</step2>\n'
+                            lines[index + 1] = ''
+                            index += 1
+                        maintsk += '\t\t\t\t\t</para>\n'
                         maintsk += '\t\t\t\t</step1>\n'
                 elif line == "":
                     index += 1
@@ -283,36 +296,35 @@ def create_maintsk() -> str:
 
             # Check to make sure there is a follow-on task first
             try:
-                if lines[index + 1]:
-                    # Jump to next line to get the task data
-                    followon_maintsk = lines[index + 1]
-                    maintsk += '\t<followon.maintsk>\n' + '\t\t<proc>\n'
-                    # Remove comments from the follow-on maintenance task
-                    followon_maintsk = add_period(insert_iaw(remove_comments(followon_maintsk)))
-                    # Display the follow-on maintenance task w/o comments
-                    maintsk += '\t\t\t<para>' + followon_maintsk + '</para>\n'
-                    maintsk += '\t\t</proc>\n' + '\t</followon.maintsk>\n'
+                if lines[index + 1] == "":
+                    break
 
+                # Jump to next line to get the task data
+                followon_maintsk = lines[index + 1]
+                maintsk += '\t<followon.maintsk>\n' + '\t\t<proc>\n'
+                # Remove comments from the follow-on maintenance task
+                followon_maintsk = insert_iaw(remove_comments(followon_maintsk))
+                # Display the follow-on maintenance task w/o comments
+                maintsk += '\t\t\t<para>' + followon_maintsk + '.</para>\n'
+                maintsk += '\t\t</proc>\n' + '\t</followon.maintsk>\n' + '</maintwp>\n'
             except IndexError:
                 # Display empty follow-on maintenance task tags
-                maintsk += '\t<followon.maintsk>\n'
-                maintsk += '\t\t<proc>\n' + '\t\t\t<para></para>\n' + '\t\t</proc>\n'
-                maintsk += '\t</followon.maintsk>\n'
-    maintsk += '</maintwp>\n'
+                maintsk += '</maintwp>\n'
     return maintsk
 
 def insert_iaw(line):
     """Parse a line for IAW's and inputs correct XML syntax."""
-    if "IAW" in line:
-        start = line.split(" IAW")[0]
-        ref = line.split("IAW")[1][1:]
+    if "IAW" not in line:
+        return line
+    start = line.split(" IAW")[0]
+    ref = line.split("IAW")[1][1:]
 
-        if "TM" in line:
-            new_line = f"{start} IAW (<extref docno='{ref}'/>)"
-        else:
-            new_line = f"{start} IAW {ref} (<xref wpid=''/>)"
-        print(new_line)
-        return new_line
+    if "TM" in line:
+        new_line = f"{start} IAW (<extref docno='{ref}'/>)"
+    else:
+        new_line = f"{start} IAW {ref} (<xref wpid=''/>)"
+    print(new_line)
+    return new_line
 
 def convert() -> None:
     """Converts the input from OneNote to XML."""
@@ -337,29 +349,50 @@ def create_xml() -> None:
     # Show the Save button
     show_save_button()
 
-def insert_callouts(row) -> None:
+# CALLOUTS VERSION 1
+def insert_callouts(row) -> str:
     """Scans through the xml output and inserts callouts where they belong."""
-    if "(F" in row:
-        row1 = row.split("(F")
-        row1 = row1[0]
-        assocfig = row.split("(F")
-        assocfig = assocfig[1].split(", I")
-        assocfig = int(assocfig[0])
-        if assocfig < 10:
-            assocfig = f"0{assocfig}"
-        if ", I" in row:
-            label = row.split(", I")
-            label= label[1].split(")")
-            label = int(label[0])
-        if ")" in row:
-            row2 = row.split(")")
-            row2 = row2[1]
-            
-            return f'{row1}<callout assocfig="{get_wpid()}-F00{assocfig}" label="{label}"/>{row2}'
-    else:
+    if "(F" not in row:
         return row
 
-def insert_figid(line):
+    row1 = row.split("(F")
+    end = row.rpartition(")")[2]
+    row1 = row1[0]
+
+    assocfig = get_callout_data(row, "(F", ", I")
+    if assocfig < 10:
+        assocfig = f"0{assocfig}"
+    if ", I" in row:
+        label = get_callout_data(row, ", I", ")")
+    if ")" in row:
+        row2 = row.split(")")
+        row2 = row2[1]
+        new_row = f'{row1}<callout assocfig="{get_wpid()}-F00{assocfig}" label="{label}"/>{row2}'
+    if "(F" not in new_row:
+        return new_row
+    row2 = f'{row2})'
+    new_row = new_row.split("(F")
+    new_row = new_row[0]
+    assocfig2 = get_callout_data(row2, "(F", ", I")
+    if assocfig2 < 10:
+        assocfig2 = f"0{assocfig2}"
+    if ", I" in row2:
+        label2 = get_callout_data(row2, ", I", ")")
+    if ")" in end:
+        end = end.split(")")
+        end = end[1]
+
+    return f'{new_row}<callout assocfig="{get_wpid()}-F00{assocfig2}" label="{label2}"/>{end}'
+
+
+def get_callout_data(arg0, arg1, arg2):
+    """Function to extract assocfig's and label's from a line for callouts"""
+    result = arg0.split(arg1)
+    result = result[1].split(arg2)
+    result = int(result[0])
+    return result
+
+def insert_figid(line) -> str:
     """Scans through the xml output and inserts figure id's where they belong."""
     if ".FIGURE" in line or ".figure" in line:
         figid = re.findall('[0-9]+', line)

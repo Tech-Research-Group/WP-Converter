@@ -14,7 +14,8 @@ def tools_setup_item(tool, tm_no) -> str:
     tools = '\t\t\t<tools-setup-item>\n'
     tools += '\t\t\t\t<name>' + tool + '</name>\n'
     tools += '\t\t\t\t<itemref>\n'
-    tools += f'\t\t\t\t\t<xref itemid="" wpid="XXXXXX-{tm_no}"/>\n'
+    # tools += f'\t\t\t\t\t<xref itemid="" wpid="XXXXXX-{tm_no}"/>\n'
+    tools += f'\t\t\t\t\t<xref itemid="" wpid="{get_til_wpid()}"/>\n'
     tools += '\t\t\t\t</itemref>\n'
     tools += '\t\t\t</tools-setup-item>\n'
     return tools
@@ -48,14 +49,13 @@ def get_mrp_wpid() -> str:
                 wpid = _l.split('wpno="')
                 wpid = wpid[1].split('">')
                 wpid = wpid[0]
-                print(wpid)
-
-        _f.close()
-        return wpid
+    print(f'MRP wpid="{wpid}')
+    _f.close()
+    return wpid
 
 
 # def get_mrpl(line) -> str:
-#     """Gets Mandatory Replacement Part MRPL_ id"""
+#     """Gets Mandatory Replacement Part itemid"""
 #     with open("templates/B0080-S00008-MRP.txt", "r", encoding="utf-8") as _f:
 #         for _l in _f:
 #             line = _l
@@ -64,3 +64,15 @@ def get_mrp_wpid() -> str:
 #                 print(line[17:-2])
 
 #         return line
+
+def get_til_wpid() -> str:
+    """Finds item in MRP list and returns its name"""
+    with open("templates/B0070-S00007-TOOLS.txt", "r", encoding="utf-8") as _f:
+        for _l in _f:
+            if 'wpno="' in _l:
+                wpid = _l.split('wpno="')
+                wpid = wpid[1].split('">')
+                wpid = wpid[0]
+    print(f'TOOL wpid="{wpid}')
+    _f.close()
+    return wpid
