@@ -15,7 +15,7 @@ def tools_setup_item(tool, tm_no) -> str:
     tools += '\t\t\t\t<name>' + tool + '</name>\n'
     tools += '\t\t\t\t<itemref>\n'
     # tools += f'\t\t\t\t\t<xref itemid="" wpid="XXXXXX-{tm_no}"/>\n'
-    tools += f'\t\t\t\t\t<xref itemid="" wpid="{get_til_wpid()}"/>\n'
+    tools += f'\t\t\t\t\t<xref itemid="" wpid="XXXXXX-{tm_no}"/>\n'
     tools += '\t\t\t\t</itemref>\n'
     tools += '\t\t\t</tools-setup-item>\n'
     return tools
@@ -30,13 +30,13 @@ def mtrlpart_setup_item(line, tm_no) -> str:
     mtrlpart += '\t\t\t</mtrlpart-setup-item>\n'
     return mtrlpart
 
-def mrp_setup_item(line) -> str:
+def mrp_setup_item(line, tm_no) -> str:
     """Creates an mrp setup item in XML format."""
     mrp = '\t\t\t<mrp-setup-item>\n'
     mrp += '\t\t\t\t<name>' + line + '</name>\n'
     mrp += '\t\t\t\t<qty></qty>\n'
     mrp += '\t\t\t\t<itemref>\n'
-    mrp += f'\t\t\t\t\t<xref itemid="MRPL_" wpid="{get_mrp_wpid()}"/>\n'
+    mrp += f'\t\t\t\t\t<xref itemid="MRPL_" wpid="XXXXXX-{tm_no}"/>\n'
     mrp += '\t\t\t\t</itemref>\n'
     mrp += '\t\t\t</mrp-setup-item>\n'
     return mrp
