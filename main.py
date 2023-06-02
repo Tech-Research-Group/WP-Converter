@@ -1,7 +1,7 @@
 """WORK PACKAGE CONVERTER"""
 import tkinter as tk
 import tkinter.font as tkfont
-from tkinter.constants import END, WORD
+from tkinter.constants import END, LEFT, RIGHT, WORD
 from tkinter import Button, filedialog, Frame, Label, messagebox, Scrollbar, Text
 import re
 import mos_codes
@@ -49,19 +49,20 @@ def get_mos(mos_code) -> str:
     if mos_code not in mos_codes.CODES:
         MOS_NAME = ""
         messagebox.showerror("Error!", "No MOS code found. If you are going to define a MOS, you need to supply a valid code. Please try again.")
-    return MOS_NAME
+    return MOS_NAME.rstrip()
 
 
 def get_task() -> str:
     """Gets the task of the work package."""
     task = split_input()[0].split(" (")
-    return task[1][:-1].upper()
+    task = task[1].upper().rstrip()
+    return task[:-1]
 
 
 def get_title() -> str:
     """Gets the title of the work package."""
     title = split_input()[0].split(" (")
-    return f'{title[0].upper()}<?Pub _newline?>{title[1][:-1].upper()}'
+    return f'{title[0].upper().rstrip()}<?Pub _newline?>{get_task()}'
 
 
 def get_tmno() -> str:
@@ -80,7 +81,7 @@ def get_wpid() -> str:
 def insert_callouts(step):
     """Scans through the xml output and inserts callouts where they belong."""
     if "(F" not in step:
-        return step
+        return step.rstrip()
 
     i = 0
     cdata = re.findall('(F\d+,\sI\d+)', step)
@@ -97,14 +98,14 @@ def insert_callouts(step):
         print(callout_new)
         new_step = new_step.replace(callout[i], callout_new)
         i += 1
-    return new_step
+    return new_step.rstrip()
 
 
 def insert_figid(line) -> str:
     """Scans through the xml output and inserts figure id's where they belong."""
-    if ".FIGURE" in line or ".figure" in line:
+    if ".FIGURE" in line or ".figure" in line or "..Figure" in line:
         figid = re.findall('[0-9]+', line)
-        return figid[0].zfill(2)
+        return figid[0].zfill(2).rstrip()
     
 
 def insert_iaw(line):
@@ -114,23 +115,76 @@ def insert_iaw(line):
     start = line.split(" IAW")[0]
     ref = line.split("IAW")[1][1:]
 
-    if "TM" in line:
-        new_line = f"{start} IAW (<extref docno='{ref}'/>)"
+    if "TM" in line or "DA" in line or "DD" in line:
+        new_line = f'{start} IAW <extref docno="{ref}"/>'
     else:
-        new_line = f"{start} IAW {ref} (<xref wpid=''/>)"
+        new_line = f'{start} IAW <xref wpid="{ref}"/>'
     print(new_line)
     return new_line
 
 
-def remove_comments(row) -> str:
-    """Removes comments from the output."""
-    return row.split("[")[0]
+"""
+    Left off here. Need to get this to eventually check the 
+    test equipment/tools/parts against the name_list and then
+    add in the correct id and wpid in the <xref /> tags in 
+    the ISB.
+"""
+def open_wip() -> None:
+    """Opens WIP folder to scan through parts' lists."""
+    global _id, name
+    _id_list = []
+    name_list = []
+    p_t_list = []
+    _x = 0
+    _y = 0
+    if filenames := filedialog.askopenfilenames():
+        print("Selected files:")
+        for filename in filenames:
+            print(filename)
+            with open(filename, 'r', encoding='utf-8') as _f:
+                # EDIL ID Check
+                for line in _f:
+                    if '<expdur-entry' in line:
+                        _id = line[20:-3]
+                        _id_list.append(_id)
+                    elif '<name>' in line:
+                        name = line[9:-8]
+                        name_list.append(name)
+                
+                    # TIL ID Check
+                    elif '<tool-entry id=' in line:
+                        _id = line[18:-3]
+                        _id_list.append(_id)
+                    elif '<name>' in line:
+                        name = line[9:-8]
+                        name_list.append(name)
+
+                    # MRP ID Check
+                    elif '<mrpl-entry id=' in line:
+                        _id = line[18:-3]
+                        _id_list.append(_id)
+                    elif '<name>' in line:
+                        name = line[9:-8]
+                        name_list.append(name)
+            _f.close()
+
+            for _ in _id_list:
+                p_t_list.append([_id_list[_x], name_list[_x]])
+                print([_id_list[_x], name_list[_x]])
+                _x += 1
+    else:
+        print("No files selected.")
 
 
 def paste_clipboard() -> None:
     """Pastes the contents of the clipboard to the input field."""
     clipboard = root.clipboard_get()
-    txt_input.insert(END, clipboard)
+    txt_input.insert(END, clipboard + "\n")
+
+
+# def remove_comments(row) -> str:
+#     """Removes comments from the output."""
+#     return row.split("[")[0]
 
 
 def save() -> None:
@@ -150,12 +204,12 @@ def show_save_button() -> None:
     btn_save = Button(root, text="Save", font=("Arial",14), fg="white",bg="#F05454",
                          activebackground="#007ACC", relief="flat", borderwidth="0",
                          command=lambda:[save(), btn_save.place_forget()])
-    btn_save.place(relx=0.5, rely=0.9, relwidth="0.5", height=100, anchor='nw')
+    btn_save.place(relx=0.75, rely=0.9, relwidth="0.25", height=100, anchor='nw')
 
 
 def split_input() -> list:
     """Splits the input into a list."""
-    return txt_input.get("1.0", END).splitlines()
+    return txt_input.get("1.0", END + "\n").splitlines()
 
 
 def create_wpidinfo() -> str:
@@ -177,7 +231,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += isb.testeqp_setup_item(lines[index], get_tmno())
+                initial_setup += isb.testeqp_setup_item(lines[index].rstrip(), get_tmno())
                 index += 1
             initial_setup += '\t\t</testeqp>\n'
 
@@ -186,7 +240,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += isb.tools_setup_item(lines[index], get_tmno())
+                initial_setup += isb.tools_setup_item(lines[index].rstrip(), get_tmno())
                 index += 1
             initial_setup += '\t\t</tools>\n'
 
@@ -195,7 +249,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += isb.mtrlpart_setup_item(remove_comments(lines[index]), get_tmno())
+                initial_setup += isb.mtrlpart_setup_item(lines[index].rstrip(), get_tmno())
                 index += 1
             initial_setup += '\t\t</mtrlpart>\n'
 
@@ -204,7 +258,7 @@ def create_initial_setup() -> str:
             index += 1
 
             while lines[index] != '':
-                initial_setup += isb.mrp_setup_item(remove_comments(lines[index]), get_tmno())
+                initial_setup += isb.mrp_setup_item(lines[index].rstrip(), get_tmno())
                 print(lines[index])
                 index += 1
             initial_setup += '\t\t</mrp>\n'
@@ -219,8 +273,8 @@ def create_initial_setup() -> str:
                 initial_setup += '\t\t\t<persnreq-setup-item>\n'
                 if line.startswith("MOS: "):
                     mos_code = line[5:8]
-                    initial_setup += f'\t\t\t\t<name>{get_mos(mos_code)}</name>\n'
-                    initial_setup += f'\t\t\t\t<mos>{mos_code}</mos>\n'
+                    initial_setup += f'\t\t\t\t<name>{get_mos(mos_code).rstrip()}</name>\n'
+                    initial_setup += f'\t\t\t\t<mos>{mos_code.rstrip()}</mos>\n'
                     initial_setup += '\t\t\t</persnreq-setup-item>\n'
                     index += 1
                     
@@ -228,16 +282,21 @@ def create_initial_setup() -> str:
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
                         initial_setup += '\t\t\t\t<name>Additional Person</name>\n'
                         initial_setup += '\t\t\t\t<mos></mos>\n'
+                    elif "MHE" in lines[index]:
+                        initial_setup += '\t\t\t<persnreq-setup-item>\n'
+                        initial_setup += '\t\t\t\t<name>Licensed MHE Operator</name>\n'
                     elif lines[index] != '':
                         initial_setup += '\t\t\t<persnreq-setup-item>\n'
                         personnel = re.findall('[0-9]+', lines[index])
                         initial_setup += '\t\t\t\t<name>Additional Personnel</name>\n'
-                        initial_setup += f'\t\t\t\t<qty>{personnel[0]}</qty>\n'
+                        initial_setup += f'\t\t\t\t<qty>{personnel[0].rstrip()}</qty>\n'
+                    
                     else:
                         break
-
+                elif "MHE" in line:
+                    initial_setup += '\t\t\t\t<name>Licensed MHE Operator</name>\n'
                 else:
-                    initial_setup += f'\t\t\t\t<name>{lines[index]}</name>\n'
+                    initial_setup += f'\t\t\t\t<name>{lines[index].rstrip()}</name>\n'
 
                 index += 1
                 initial_setup += '\t\t\t</persnreq-setup-item>\n'
@@ -249,10 +308,10 @@ def create_initial_setup() -> str:
 
             while lines[index] != '':
                 initial_setup += '\t\t\t<ref-setup-item>\n'
-                if lines[index].startswith("TM"):
-                    initial_setup += f'\t\t\t\t<extref docno="{remove_comments(lines[index])}"/>\n'
+                if lines[index].startswith("TM") or lines[index].startswith("DA") or lines[index].startswith("DD"):
+                    initial_setup += f'\t\t\t\t<extref docno="{lines[index].rstrip()}"/>\n'
                 else:
-                    initial_setup += f'\t\t\t\t<xref wpid="XXXXXX-{get_tmno()}"/>\n'
+                    initial_setup += f'\t\t\t\t<xref wpid="XXXXXX-{get_tmno().rstrip()}"/>\n'
                 initial_setup += '\t\t\t</ref-setup-item>\n'
                 index += 1
             initial_setup += '\t\t</ref>\n'
@@ -263,14 +322,14 @@ def create_initial_setup() -> str:
 
             while lines[index] != '':
                 initial_setup += '\t\t\t<eqpconds-setup-item>\n'
-                if lines[index].startswith("TM"):
+                if lines[index].startswith("TM") or lines[index].startswith("DA") or lines[index].startswith("DD"):
                     initial_setup += '\t\t\t\t<condition>PLACEHOLDER</condition>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += f'\t\t\t\t<extref docno="{lines[index]}"/>\n'
+                    initial_setup += f'\t\t\t\t<extref docno="{lines[index].rstrip()}"/>\n'
                 else:
-                    initial_setup += f'\t\t\t\t<condition>{lines[index]}</condition>\n'
+                    initial_setup += f'\t\t\t\t<condition>{lines[index].rstrip()}</condition>\n'
                     initial_setup += '\t\t\t\t<itemref>\n'
-                    initial_setup += f'\t\t\t\t\t<xref wpid="XXXXXX-{get_tmno()}"/>\n'
+                    initial_setup += f'\t\t\t\t\t<xref wpid="XXXXXX-{get_tmno().rstrip()}"/>\n'
                 initial_setup += '\t\t\t\t</itemref>\n'
                 initial_setup += '\t\t\t</eqpconds-setup-item>\n'
                 index += 1
@@ -283,78 +342,86 @@ def create_maintsk() -> str:
     """Creates the maintsk section into XML."""
     lines = split_input()
     maintsk = '\t<maintsk>\n'
+    followon_maintsk = []
+
     for line in lines:
         if line.startswith("Maintenance Task Here:"):
             # Get the task name and wrap it in xml tags
             task = get_task()
-            maintsk += '\t\t<' + task.lower() + '>\n'
+            maintsk += '\t\t<' + task.lower().rstrip() + '>\n'
             maintsk += '\t\t\t<proc>\n' + '\t\t\t\t<title/>\n'
 
             for line in lines:
                 index = lines.index(line)
                 if line.startswith("."):
-                # if line.startswith("STEP1") or line.startswith("STEP2") or line.startswith("STEP3") or line.startswith("NOTE") \
-                    # or line.startswith("CAUTION") or line.startswith("WARNING") or line.startswith("FIGURE"):
 
-                    if line.startswith(".NOTE: "): # and lines[index + 1].startswith(".NOTE:"):
-                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<note>\n'
-
-                        while lines[index].startswith(".NOTE: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_callouts(remove_comments(lines[index][7:]))}</trim.para>\n'
-                            lines[index] = ""
-                            index += 1
-                            
-                        maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index + 1][1:]))}\n'
-                        index += 1
-                        lines[index] = ""
-                        # TODO Fix adding step2s here
-                        # index += 1
-                        # while lines[index].startswith(".."):
-                        #     maintsk += '\t\t\t\t\t\t\t\t<step2>\n'
-                        #     maintsk += f'\t\t\t\t\t\t\t\t\t<para>{insert_callouts(lines[index][2:])}.</para>\n'
-                        #     maintsk += '\t\t\t\t\t\t\t\t</step2>\n'
-                        #     index += 1
-
-                        maintsk += '\t\t\t\t\t\t\t</para>\n'
-                        maintsk += '\t\t\t\t\t\t</note>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
-                        lines[index + 1] = ''
-
-                    elif line.startswith(".CAUTION: "):
-                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<caution>\n'
-                        maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
-
-                        while lines[index].startswith(".CAUTION: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_callouts(remove_comments(lines[index][10:]))}</trim.para>\n'
-                            lines[index] = ""
-                            index += 1
-
-                        maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index + 1][1:]))}\n'
-                        index += 1
-                        lines[index] = ""
-
-                        maintsk += '\t\t\t\t\t\t\t</para>\n'
-                        maintsk += '\t\t\t\t\t\t</caution>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
-                        lines[index + 1] = ''
-
-                    elif line.startswith(".WARNING: "):
+                    if line.upper().startswith(".WARNING: "):
                         maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<warning>\n'
                         maintsk += '\t\t\t\t\t\t\t<icon-set boardno="PLACEHOLDER"/>\n'
 
-                        while lines[index].startswith(".WARNING: "):
-                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_callouts(remove_comments(lines[index][10:]))}</trim.para>\n'
+                        while lines[index].upper().startswith(".WARNING: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_iaw(insert_callouts(lines[index][10:])).rstrip()}</trim.para>\n'
                             lines[index] = ""
                             index += 1
 
-                        maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index + 1][1:]))}</para>\n'
+                        maintsk += '\t\t\t\t\t\t</warning>\n'
+
+                        if lines[index].upper().startswith(".CAUTION: "):
+                            maintsk += '\t\t\t\t\t\t<caution>\n'
+
+                            while lines[index].upper().startswith(".CAUTION: "):
+                                maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_iaw(insert_callouts(lines[index][10:])).rstrip()}</trim.para>\n'
+                                lines[index] = ""
+                                index += 1
+                            maintsk += '\t\t\t\t\t\t</caution>\n'
+
+                        if lines[index].upper().startswith(".NOTE: "):
+                            maintsk += '\t\t\t\t\t\t<note>\n'
+
+                            while lines[index].upper().startswith(".NOTE: "):
+                                maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_iaw(insert_callouts(lines[index][7:])).rstrip()}</trim.para>\n'
+                                lines[index] = ""
+                                index += 1
+                            maintsk += '\t\t\t\t\t\t</note>\n'
+
+                        maintsk += f'\t\t\t\t\t\t<para>{insert_iaw(insert_callouts(lines[index + 1][1:])).rstrip()}</para>\n'
+                        maintsk += '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
+                        lines[index + 1] = ''
+
+                    elif line.upper().startswith(".CAUTION: "):
+                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<caution>\n'
+
+                        while lines[index].upper().startswith(".CAUTION: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_iaw(insert_callouts(lines[index][10:])).rstrip()}</trim.para>\n'
+                            lines[index] = ""
+                            index += 1
+
+                        maintsk += '\t\t\t\t\t\t</caution>\n'
+                        maintsk += f'\t\t\t\t\t\t<para>{insert_iaw(insert_callouts(lines[index + 1][1:])).rstrip()}</para>\n'
                         index += 1
                         lines[index] = ""
 
-                        maintsk += '\t\t\t\t\t\t\t</para>\n'
-                        maintsk += '\t\t\t\t\t\t</warning>\n' + '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
+                        maintsk += '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
                         lines[index + 1] = ''
 
-                    elif line.startswith(".FIGURE"):
-                        maintsk += f'\t\t\t\t<figure id="{get_wpid()}-F00{insert_figid(line)}">\n'
+                    elif line.upper().startswith(".NOTE: "):
+                        maintsk += '\t\t\t\t<step1>\n' + '\t\t\t\t\t<specpara>\n' + '\t\t\t\t\t\t<note>\n'
+
+                        while lines[index].upper().startswith(".NOTE: "):
+                            maintsk += f'\t\t\t\t\t\t\t<trim.para>{insert_iaw(insert_callouts(lines[index][7:])).rstrip()}</trim.para>\n'
+                            lines[index] = ""
+                            index += 1
+                            
+                        maintsk += '\t\t\t\t\t\t</note>\n'
+                        maintsk += f'\t\t\t\t\t\t<para>{insert_iaw(insert_callouts(lines[index + 1][1:])).rstrip()}</para>\n'
+                        index += 1
+                        lines[index] = ""
+
+                        maintsk += '\t\t\t\t\t</specpara>\n' + '\t\t\t\t</step1>\n'
+                        lines[index + 1] = ''
+
+                    elif line.upper().startswith(".FIGURE") or line.startswith(".Figure"):
+                        maintsk += f'\t\t\t\t<figure id="{get_wpid()}-F00{insert_figid(line).rstrip()}">\n'
                         if lines[index].split(": ")[-1].upper() == '.FIGURE':
                             maintsk += '\t\t\t\t\t<title></title>\n'
                         else:
@@ -364,65 +431,98 @@ def create_maintsk() -> str:
 
                     else:
                         maintsk += '\t\t\t\t<step1>\n'
-                        # maintsk += f'\t\t\t\t\t<para>{insert_callouts(remove_comments(lines[index][1:]))}.</para>\n'
-                        maintsk += f'\t\t\t\t\t<para>{insert_callouts(lines[index][1:])}\n'
+                        maintsk += f'\t\t\t\t\t<para>{insert_iaw(insert_callouts(lines[index][1:])).rstrip()}</para>\n'
                         
-                        while lines[index + 1].startswith("..") and not lines[index + 1].startswith("..."):
-                            maintsk += '\t\t\t\t\t\t<step2>\n'
-                            maintsk += f'\t\t\t\t\t\t\t<para>{insert_callouts(lines[index + 1][2:])}\n'
-                            
-                            # TODO Fix loop creating step2/3s interfering w/ one another
-                            # while lines[index + 1].startswith("..."):
-                            #     maintsk += '\t\t\t\t\t\t\t\t<step3>\n'
-                            #     maintsk += f'\t\t\t\t\t\t\t\t<para>{insert_callouts(lines[index + 1][3:])}.</para>\n'
-                            #     maintsk += '\t\t\t\t\t\t\t\t</step3>\n'
-                            #     lines[index + 1] = ''
-                            #     index += 1
-                            maintsk += '\t\t\t\t\t\t\t</para>\n'
-                            maintsk += '\t\t\t\t\t\t</step2>\n'
-                            lines[index + 1] = ''
-                            index += 1
-                        maintsk += '\t\t\t\t\t</para>\n'
+                        while lines[index + 1].startswith("..") or lines[index + 1].upper().startswith("..FIGURE"):
+                            if lines[index + 1].startswith("..") and not lines[index + 1].upper().startswith("..FIGURE"):
+                                maintsk += '\t\t\t\t\t\t<step2>\n'
+                                maintsk += f'\t\t\t\t\t\t\t<para>{insert_iaw(insert_callouts(lines[index + 1][2:])).rstrip()}</para>\n'
+                                
+                                # TODO Fix loop creating step3s interfering w/ one another
+                                index += 1
+                                while lines[index + 1].startswith("...") or lines[index + 1].upper().startswith("...FIGURE"):
+                                    if lines[index + 1].startswith("...") and not lines[index + 1].upper().startswith("...FIGURE"):
+                                        maintsk += '\t\t\t\t\t\t\t\t<step3>\n'
+                                        maintsk += f'\t\t\t\t\t\t\t\t\t<para>{insert_iaw(insert_callouts(lines[index + 1][3:])).rstrip()}</para>\n'
+                                        maintsk += '\t\t\t\t\t\t\t\t</step3>\n'
+                                        lines[index + 1] = ''
+                                        index += 1
+
+                                    elif lines[index + 1].upper().startswith("...FIGURE"):
+                                        maintsk += f'\t\t\t\t\t\t<figure id="{get_wpid()}-F00{insert_figid(lines[index + 1])}">\n'
+                                        if lines[index + 1].split(": ")[-1].upper() == '...FIGURE':
+                                            maintsk += '\t\t\t\t\t\t\t<title></title>\n'
+                                        else:
+                                            maintsk += f'\t\t\t\t\t\t\t<title>{lines[index + 1].split(":")[-1].strip().title()}</title>\n'
+                                        maintsk += '\t\t\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
+                                        maintsk += '\t\t\t\t\t\t</figure>\n'
+                                        lines[index + 1] = ''
+                                        index += 1
+
+                                maintsk += '\t\t\t\t\t\t</step2>\n'
+                                lines[index + 1] = ''
+                                index += 1
+                            elif lines[index + 1].upper().startswith("..FIGURE"):
+                                maintsk += f'\t\t\t\t\t\t<figure id="{get_wpid()}-F00{insert_figid(lines[index + 1])}">\n'
+                                if lines[index + 1].split(": ")[-1].upper() == '..FIGURE':
+                                    maintsk += '\t\t\t\t\t\t\t<title></title>\n'
+                                else:
+                                    maintsk += f'\t\t\t\t\t\t\t<title>{lines[index + 1].split(":")[-1].strip().title()}</title>\n'
+                                maintsk += '\t\t\t\t\t\t\t<graphic boardno="PLACEHOLDER"/>\n'
+                                maintsk += '\t\t\t\t\t\t</figure>\n'
+                                lines[index + 1] = ''
+                                index += 1
                         maintsk += '\t\t\t\t</step1>\n'
                 elif line == "":
                     index += 1
             maintsk += '\t\t\t</proc>\n'
-            maintsk += f'\t\t</{task.lower()}>\n'
+            maintsk += f'\t\t</{task.lower().rstrip()}>\n'
     maintsk += '\t</maintsk>\n'
 
     for line in lines:
         if line.startswith("Follow on ") or line.startswith("Follow-on "):
+            maintsk += '\t<followon.maintsk>\n' + '\t\t<proc>\n'
+
             # Get index of line for Follow On Task Name
             index = lines.index(line)
 
-            # Check to make sure there is a follow-on task first
-            try:
-                if lines[index + 1] == "":
-                    break
+            if lines[index + 1] == "":
+                break
 
-                # Jump to next line to get the task data
-                followon_maintsk = lines[index + 1]
-                maintsk += '\t<followon.maintsk>\n' + '\t\t<proc>\n'
+            for line in lines:
+                if line.startswith("!"):
+                    # Jump to next line to get the task data
+                    followon_maintsk.append(lines[index + 1].strip())
+            print(len(followon_maintsk))
+            if len(followon_maintsk) == 1:
                 # Remove comments from the follow-on maintenance task
-                followon_maintsk = insert_iaw(remove_comments(followon_maintsk))
+                followon_maintsk[0] = insert_iaw(followon_maintsk[0])
                 # Display the follow-on maintenance task w/o comments
-                maintsk += '\t\t\t<para>' + followon_maintsk + '.</para>\n'
-                maintsk += '\t\t</proc>\n' + '\t</followon.maintsk>\n' + '</maintwp>\n'
-            except IndexError:
-                # Display empty follow-on maintenance task tags
-                maintsk += '</maintwp>\n'
+                maintsk += '\t\t\t<para>' + followon_maintsk[0][1:] + '.</para>\n'
+            else:
+                while lines[index + 1] != '':
+                    maintsk += '\t\t\t<step1>\n'
+                    # Display the follow-on maintenance task w/o comments
+                    maintsk += '\t\t\t\t<para>' + insert_iaw(lines[index + 1][1:].strip()) + '.</para>\n'
+                    maintsk += '\t\t\t</step1>\n'
+                    index += 1
+
+            maintsk += '\t\t</proc>\n' + '\t</followon.maintsk>\n'
+    maintsk += '</maintwp>\n'
     return maintsk
 
 
 def create_xml() -> None:
     """Creates/displays the XML output and calls the Save button."""
+    txt_input.insert(END, "\n")
+    
     # Call functions that convert input into XML
     xml = create_wpidinfo()
     xml += create_initial_setup()
-    xml += create_maintsk()
+    xml += create_maintsk() + "\n"
 
     # Insert XML into the output box
-    txt_output.insert(END, xml + "\n")
+    txt_output.insert(END, xml)
 
     # Show the Save button
     show_save_button()
@@ -436,32 +536,35 @@ root.configure(background='#222831')
 
 # root.geometry("1008x769") # MacOS
 root.geometry("1450x1000") # Windows
-# Grabs the clipboard data on app load
-# clipboard = root.clipboard_get()
 
 frame1 = Frame(root, bg='#c6cbcf', bd=10)
 frame1.place(relx=0, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
 
 text_scroll1 = Scrollbar(frame1)
-text_scroll1.pack(side="right", fill="y")
+text_scroll1.pack(side=RIGHT, fill="y")
 
 #input text
-txt_input = Text(frame1,font =("Arial", 13), insertbackground="black", bg="#ffffff",
+txt_input = Text(frame1, font=("Arial", 13), insertbackground="black", bg="#ffffff",
                     fg ="black", selectbackground="#30475E", selectforeground="white", undo=True,
                     yscrollcommand=text_scroll1.set, wrap=WORD)
-txt_input.pack(side = "left", fill="y")
+txt_input.pack(side=LEFT, fill="y")
 
 text_scroll1.config(command=txt_input.yview)
 
 # Clipboard Button
-btn_cb = Button(root, text ="Paste Clipboard", font=("Arial",14), fg="white", bg="#F05454",
+btn_cb = Button(root, text="Paste Clipboard", font=("Arial",14), fg="white", bg="#F05454",
                     activebackground="#007ACC", relief="flat", borderwidth="0", command=paste_clipboard)
-btn_cb.place(relx = 0, rely = .9, relwidth="0.25", height=100, anchor='nw')
+btn_cb.place(relx=0, rely=.9, relwidth="0.25", height=100, anchor='nw')
+
+# Select WIP Folder Button
+btn_wip = Button(root, text ="Select WIP", font=("Arial",14), fg="white", bg="#F05454",
+                    activebackground="#007ACC", relief="flat", borderwidth="0", command=open_wip)
+btn_wip.place(relx=0.25, rely=.9, relwidth="0.25", height=100, anchor='nw')
 
 # Convert Button
-btn_convert = Button(root, text ="Convert", font=("Arial",14), fg="white", bg="#F05454",
+btn_convert = Button(root, text="Convert", font=("Arial",14), fg="white", bg="#F05454",
                     activebackground="#007ACC", relief="flat", borderwidth="0", command=convert)
-btn_convert.place(relx = 0.25, rely = .9, relwidth="0.25", height=100, anchor='nw')
+btn_convert.place(relx = 0.5, rely=.9, relwidth="0.25", height=100, anchor='nw')
 
 label1 = Label(root,text="Copy your work package data from OneNote and paste it in the box below.",
                   font=("Arial", 12), bg='#DDDDDD')
@@ -471,13 +574,13 @@ frame2 = Frame(root, bg='#c6cbcf', bd=10)
 frame2.place(relx=0.5, rely=0.05, relwidth=0.5, relheight=0.85, anchor='nw')
 
 text_scroll2 = Scrollbar(frame2)
-text_scroll2.pack(side="right", fill="y")
+text_scroll2.pack(side=RIGHT, fill="y")
 
 #output text
-txt_output = Text(frame2,font =("Menlo", 13),insertbackground="black", bg="#ffffff",
+txt_output = Text(frame2, font =("Menlo", 13),insertbackground="black", bg="#ffffff",
                      fg ="black", selectbackground="#30475E", selectforeground="white",
                      undo=True, yscrollcommand=text_scroll2.set, wrap=WORD)
-txt_output.pack(side="left", fill="y")
+txt_output.pack(side=LEFT, fill="y")
 
 font = tkfont.Font(font=txt_output['font'])
 tab=font.measure("    ")
