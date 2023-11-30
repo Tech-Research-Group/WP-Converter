@@ -1,0 +1,51 @@
+Side Flap, Vent Cover (Replace)
+
+WPID: M00006-10-5497-225
+
+Maintenance Class: Maintainer
+
+Test Equipment:
+Multimeter
+
+Tools:
+Stepladder, 6-FT
+Tape, Measure (PART OF SATS)   
+Tool Kit, General Mechanic's (GMTK)     
+Wrench, Set (PART OF SATS)    
+
+Materials:
+Caulking Compound
+Gloves, Men's and Women's
+Rag, Wiping
+
+Mandatory Replacement Parts:
+Nut, Self-Locking, Hexagon    
+Washer, Lock   
+
+Personnel:
+MOS: 91J   
+Licensed MHE Operator
+2 People  
+
+References: 
+DA PAM 40-501
+TM 10-8340-244-23&P
+WP 0036
+
+Equipment Condition:
+EKF water supply and waste collection shutdown
+Water bag solar shade removed
+
+Maintenance Task Here:
+.WARNING: Electricity is flowing through the power cable (F1, I1).
+.CAUTION: Electricity is flowing through the power cable.       
+.NOTE: Electricity is flowing through the power cable IAW TM 10-4120-453-13&amp;P.
+
+.Unscrew and remove locking ring, rubber sealing washer (F3, I1) and friction washer.
+..Remove shower drain frame (F3, I2).
+..Remove tape (F3, I3) from shower drain frame.     
+..FIGURE 3: Shower Drain Frame     
+..Place putty around the lip of the new shower drain frame.
+...This step3 is really quick and easy.
+...This step3 is even easier.
+...This step3 is the easiest ever.
