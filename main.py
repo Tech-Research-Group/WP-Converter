@@ -84,7 +84,7 @@ def insert_callouts(step):
         return step.rstrip()
 
     i = 0
-    cdata = re.findall('(F\d+,\sI\d+)', step)
+    cdata = re.findall(r'(F\d+,\sI\d+)', step)
     assocfig = []
     label = []
     callout = []
